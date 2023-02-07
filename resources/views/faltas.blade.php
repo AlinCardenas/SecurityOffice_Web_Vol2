@@ -3,5 +3,5 @@
 @section('title', 'Inasistencias')
     
 @section('content')
-    <h1>INASISTENCIAS</h1>
+    <h1>Inasistencias</h1>
 @endsection

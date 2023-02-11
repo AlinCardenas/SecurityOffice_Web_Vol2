@@ -1,8 +1,8 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Inasistencias')
-    
+@section('title', 'Bonos')
+
 @section('content')
-    <h1>Inasistencias</h1>
+    <h1>Ver</h1>
     
 @endsection

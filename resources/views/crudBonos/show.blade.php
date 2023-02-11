@@ -3,5 +3,6 @@
 @section('title', 'Bonos')
 
 @section('content')
-    <h1>Listado de bonos</h1>
+    <h1>Ver</h1>
+    
 @endsection

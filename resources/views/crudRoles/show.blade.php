@@ -1,7 +1,8 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Roles')
+@section('title', 'Bonos')
 
 @section('content')
-    <h1>Listado de roles</h1>
+    <h1>Ver</h1>
+    
 @endsection

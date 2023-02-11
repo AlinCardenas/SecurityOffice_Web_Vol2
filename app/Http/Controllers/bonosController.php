@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class leerRolesController extends Controller
+class bonosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class leerRolesController extends Controller
      */
     public function index()
     {
-        return "Principal";
+        return view('/crudBonos/index');
     }
 
     /**
@@ -23,7 +23,7 @@ class leerRolesController extends Controller
      */
     public function create()
     {
-        return "Crear";
+        return view('/crudBonos/create');
     }
 
     /**
@@ -56,7 +56,7 @@ class leerRolesController extends Controller
      */
     public function edit($id)
     {
-        return "editar";
+        //
     }
 
     /**
@@ -79,6 +79,6 @@ class leerRolesController extends Controller
      */
     public function destroy($id)
     {
-        return "eliminar";
+        //
     }
 }

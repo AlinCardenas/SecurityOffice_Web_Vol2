@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
-use App\Http\Controllers\leerBonosController;
-use App\Http\Controllers\leerRolesController;
+use App\Http\Controllers\BonosController;
 use App\Http\Controllers\listaUsuariosController;
 use App\Http\Controllers\monitoreoController;
 use Illuminate\Support\Facades\Route;
@@ -29,13 +28,16 @@ Route::get('/listaUsuarios', listaUsuariosController::class);
 Route::get('/faltas', faltasController::class);
 Route::get('/entradasSalidas', entradasSalidasController::class);
 
-//Rutas crudRoles
-Route::get('crudRoles', [leerRolesController::class,'index']);
-Route::get('crudRoles/create', [leerRolesController::class,'create']);
-
 //Rutas crudBonos
-Route::get('crudBonos', [leerBonosController::class,'index']);
-Route::get('crudBonos/create', [leerBonosController::class,'create']);
+Route::get('/crudBonos', [BonosController::class,'index']);
+Route::get('/crudBonos/create', [BonosController::class,'create']);
+
+
+
+
+
+
+
 
 
 

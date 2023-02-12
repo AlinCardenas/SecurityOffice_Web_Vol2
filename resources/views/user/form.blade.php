@@ -34,7 +34,7 @@
             </div>
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto de perfil</label>
-                <input class="form-control" type="file" id="foto" name="foto" required>
+                <input class="form-control" type="text" id="foto" name="foto" required>
             </div>
             <div class="form-group">
                 {{ Form::label('email') }}

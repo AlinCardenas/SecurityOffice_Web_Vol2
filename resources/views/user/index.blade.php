@@ -1,24 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('template_title')
-    User
-@endsection
+@section('title', 'Listado de usuarios')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid w-75">
+        <h1>Listado de usuarios</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('User') }}
-                            </span>
-
-                             <div class="float-right">
-                                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                             <div class="float-right my-2">
+                                <a href="{{ route('users.create') }}" class="btn btn-info btn-sm float-right"  data-placement="right">
+                                  {{ __('Crear nuevo usuario') }}
                                 </a>
                               </div>
                         </div>
@@ -34,19 +28,13 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
 										<th>Nombre</th>
-										<th>Appa</th>
-										<th>Appb</th>
-										<th>Fechan</th>
+										<th>Primer apellido</th>
 										<th>Genero</th>
 										<th>Foto</th>
 										<th>Email</th>
 										<th>Estatus</th>
 										<th>Puesto Id</th>
-
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>

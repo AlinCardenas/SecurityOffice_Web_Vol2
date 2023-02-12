@@ -11,7 +11,6 @@
                     <h4 class="card-title">Ingresa tus datos</h4>
                 </div>
                 <div class="card-body">
-                    <div class="">
                         <form action="">
                             <div class="mb-3">
                                 <label class="form-label" for="nombre">Nombre</label><br />
@@ -71,8 +70,8 @@
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </form>
-                    </div>
                 </div>
             </div>
         </div>
+    </body>
 @endsection

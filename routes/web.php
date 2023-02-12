@@ -9,6 +9,7 @@ use App\Http\Controllers\BonosController;
 use App\Http\Controllers\InasistenciaController;
 use App\Http\Controllers\listaUsuariosController;
 use App\Http\Controllers\monitoreoController;
+use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UserController;
@@ -35,9 +36,12 @@ Route::get('/monitoreo', monitoreoController::class);
 Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 
+// Ejemplo
+Route::get('/ejemplo', PruebaController::class);
+
 
 //Rutas CRUDS
-Route::get('/usuarios', [UserController::class, 'index']);
+Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
 Route::get('/usuarios/create', [UserController::class, 'create'])->name('users.create');
 Route::get('/usuarios/usuario', [UserController::class, 'store'])->name('users.store');
 Route::get('/usuarios/edit/{id}', [UserController::class, 'edit']);

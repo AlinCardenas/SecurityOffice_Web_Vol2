@@ -10,60 +10,96 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/app.css" />
 </head>
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto  mt-4 text-decoration-none">
-                        <img src="{{asset('img/logo.png') }}" alt="Logo" width="185" height="68">
-                    </a>
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 color-bg shadow-lg">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                    <div class="d-flex justify-content-center">
+                        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto  mt-4 text-decoration-none">
+                            <img src="{{asset('img/logo.png') }}" alt="Logo" width="180" height="168">
+                        </a>
+                    </div>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link align-middle px-0">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">Asistencia</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/faltas" class="nav-link align-middle px-0">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">Inasistencia</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/entradasSalidas" class="nav-link align-middle px-0">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">Registros entrada y salida</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/listaUsuarios" class="nav-link px-0 align-middle">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">Usuarios</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/monitoreo" class="nav-link align-middle px-0">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">Monitoreo</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-white">CRUD</span> </a>
-                            <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                <li>
-                                    <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Bonos</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Roles</span></a>
-                                </li>
-                            </ul>
-                        </li>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/asistencia.png') }}" alt="" width="30" height="30">
+                            </div>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link align-middle px-0">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Asistencia</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/falta.png') }}" alt="" width="30" height="30">
+                            </div>
+                            <li class="nav-item">
+                                <a href="/faltas" class="nav-link align-middle px-0">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Inasistencia</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/acceso.png') }}" alt="" width="30" height="30">
+                            </div>
+                            <li class="nav-item">
+                                <a href="/entradasSalidas" class="nav-link align-middle px-0">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Registros de acceso</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/usuarios.png') }}" alt="" width="30" height="30">
+                            </div>
+                            <li class="nav-item">
+                                <a href="/listaUsuarios" class="nav-link px-0 align-middle">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Usuarios</span>
+                                </a>
+                            </li>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/monitoreo.png') }}" alt="" width="30" height="30">
+                            </div>
+                            <li class="nav-item">
+                                <a href="/monitoreo" class="nav-link align-middle px-0">
+                                    <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Monitoreo</span>
+                                </a>
+                            </li>
+                        </div>                            
+                            <li>
+                                
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div class="me-3">
+                                            <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
+                                        </div>
+                                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                            <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">CRUD</span> 
+                                        </a>
+                                    </div>
+                                    
+                                <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Roles</span></a>
+                                    </li>
+                                </ul>
+                            </li>
                         {{-- AQUI --}}
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">Usuario</span>
+                            <span class="d-none d-sm-inline mx-1 text-black">Usuario</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">Nombre</a></li>

@@ -2,12 +2,16 @@
 
 use App\Http\Controllers\AccesosController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
 use App\Http\Controllers\InasistenciaController;
 use App\Http\Controllers\listaUsuariosController;
 use App\Http\Controllers\monitoreoController;
+use App\Http\Controllers\PuestoController;
+use App\Http\Controllers\TurnoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,8 +37,16 @@ Route::get('/entradasSalidas', AccesosController::class);
 
 
 //Rutas CRUDS
-Route::resource('/areas', AreaController::class);
+Route::get('/usuarios', [UserController::class, 'index']);
+Route::get('/usuarios/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/usuarios/usuario', [UserController::class, 'store'])->name('users.store');
+Route::get('/usuarios/edit/{id}', [UserController::class, 'edit']);
+Route::get('/usuarios/show/{id}', [UserController::class, 'show']);
 
+
+Route::resource('/bonos', BonoController::class);
+Route::resource('/puestos', PuestoController::class);
+Route::resource('/turnos', TurnoController::class);
 
 
 

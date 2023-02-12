@@ -89,7 +89,10 @@
                                         <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Roles</span></a>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Puestos</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Turnos</span></a>
                                     </li>
                                 </ul>
                             </li>

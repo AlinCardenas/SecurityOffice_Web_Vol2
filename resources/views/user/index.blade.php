@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid w-75">
         <h1>Listado de usuarios</h1>
-        <div class="row">
+        <div class="row"> 
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
@@ -34,18 +34,14 @@
 										<th>Foto</th>
 										<th>Email</th>
 										<th>Estatus</th>
-										<th>Puesto Id</th>
+										<th>Puesto</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($users as $user)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
+                                        <tr>                                            
 											<td>{{ $user->nombre }}</td>
 											<td>{{ $user->appA }}</td>
-											<td>{{ $user->appB }}</td>
-											<td>{{ $user->fechaN }}</td>
 											<td>{{ $user->genero }}</td>
 											<td>{{ $user->foto }}</td>
 											<td>{{ $user->email }}</td>

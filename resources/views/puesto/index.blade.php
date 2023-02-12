@@ -1,24 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('template_title')
-    Puesto
-@endsection
+@section('title', 'Puestos')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid w-75">
+        <h1>Listado de puestos</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Puesto') }}
-                            </span>
-
-                             <div class="float-right">
-                                <a href="{{ route('puestos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                            <div class="float-right my-2">
+                                <a href="{{ route('puestos.create') }}" class="btn btn-info btn-sm float-right"  data-placement="right">
+                                  {{ __('Crear nuevo usuario') }}
                                 </a>
                               </div>
                         </div>
@@ -33,23 +27,17 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
+                                    <tr>                                        
 										<th>Nombre</th>
 										<th>Salario</th>
 										<th>Estatus</th>
-										<th>Rol</th>
-										<th>Area Id</th>
-
-                                        <th></th>
+										<th>Rol de puesto</th>
+										<th>Area</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($puestos as $puesto)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $puesto->nombre }}</td>
 											<td>{{ $puesto->salario }}</td>
 											<td>{{ $puesto->estatus }}</td>

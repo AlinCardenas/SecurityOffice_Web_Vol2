@@ -1,75 +1,66 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('template_title')
-    Turno
-@endsection
+@section('title', 'Listado de turnos')
 
 @section('content')
-    <div class="container-fluid">
+<div class="content d-flex justify-content-center ms-4">
+    <div class="card w-100 ">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Turno') }}
-                            </span>
-
-                             <div class="float-right">
-                                <a href="/usuarios/create" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
-                        </div>
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Lista de turnos</h4>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
-										<th>Turno</th>
-										<th>Hora Inicio</th>
-										<th>Hora Fin</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($turnos as $turno)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $turno->turno }}</td>
-											<td>{{ $turno->hora_inicio }}</td>
-											<td>{{ $turno->hora_fin }}</td>
-
-                                            <td>
-                                                <form action="{{ route('turnos.destroy',$turno->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('turnos.show',$turno->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('turnos.edit',$turno->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="table-responsive ">
+                            <div class="mb-3">
+                                <a class="btn btn-info" href="{{route('turnos.create')}}" role="button">Agregar turno</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="thead">
+                                            <tr>
+                                                <th>Turno</th>
+                                                <th>Hora de inicio</th>
+                                                <th>Hora de fin</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($turnos as $turno)
+                                                <tr>                                          
+                                                    <td>{{ $turno->turno }}</td>
+                                                    <td>{{ $turno->hora_inicio }}</td>
+                                                    <td>{{ $turno->hora_fin }}</td>
+        
+                                                    <td>
+                                                        <form action="{{ route('turnos.destroy',$turno->id) }}" method="POST">
+                                                            <a class="btn btn-sm btn-primary " href="{{ route('turnos.show',$turno->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                            <a class="btn btn-sm btn-success" href="{{ route('turnos.edit',$turno->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+                        {!! $turnos->links() !!}
                     </div>
                 </div>
-                {!! $turnos->links() !!}
             </div>
         </div>
     </div>
+</div>
 @endsection
+
+
+
+
+
+

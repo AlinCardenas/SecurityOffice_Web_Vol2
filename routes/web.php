@@ -36,7 +36,7 @@ Route::get('/monitoreo', monitoreoController::class);
 Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 
-// Ejemplo
+// AREAS
 Route::get('/areas', [AreaController::class, 'index'])->name('areas.index');
 Route::get('/areas/create', [AreaController::class, 'create'])->name('areas.create');
 Route::post('/areas/area', [AreaController::class, 'store'])->name('areas.store');
@@ -45,7 +45,7 @@ Route::get('/areas/edit/{id}', [AreaController::class, 'edit'])->name('areas.edi
 Route::put('/areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('/areas/{id}', [AreaController::class, 'destroy'])->name('areas.destroy');
 
-//Rutas CRUDS
+//Usuarios
 Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
 Route::get('/usuarios/create', [UserController::class, 'create'])->name('users.create');
 Route::post('/usuarios/usuario', [UserController::class, 'store'])->name('users.store');
@@ -54,6 +54,8 @@ Route::get('/usuarios/edit/{id}', [UserController::class, 'edit'])->name('users.
 Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
+
+Route::get('/ejemplo', PruebaController::class);
 
 Route::resource('/bonos', BonoController::class);
 Route::resource('/puestos', PuestoController::class);

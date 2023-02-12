@@ -1,30 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('template_title')
-    Create Bono
-@endsection
+@section('title', 'Crear bono')
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            @includeif('partials.errors')
 
-                @includeif('partials.errors')
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Bono</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('bonos.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('bono.form')
-
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <form method="POST" action="{{ route('bonos.store') }}" role="form" enctype="multipart/form-data">
+                @csrf
+                @include('bono.form')
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 @endsection

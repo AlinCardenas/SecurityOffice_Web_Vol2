@@ -58,7 +58,7 @@
                                 <img src="{{asset('img/usuarios.png') }}" alt="" width="30" height="30">
                             </div>
                             <li class="nav-item">
-                                <a href="/listaUsuarios" class="nav-link px-0 align-middle">
+                                <a href="{{route('users.index')}}" class="nav-link px-0 align-middle">
                                     <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Usuarios</span>
                                 </a>
                             </li>
@@ -86,10 +86,13 @@
                                     
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
+                                        <a href="{{route('bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Roles</span></a>
+                                        <a href="{{route('puestos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Puestos</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Turnos</span></a>
                                     </li>
                                 </ul>
                             </li>

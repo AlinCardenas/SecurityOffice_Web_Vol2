@@ -23,14 +23,13 @@ Route::get('/', function () {
 });
 
 //Rutas solo views
-Route::get('/monitoreo', monitoreoController::class);
-Route::get('/listaUsuarios', listaUsuariosController::class);
-Route::get('/faltas', faltasController::class);
-Route::get('/entradasSalidas', entradasSalidasController::class);
+// Route::get('/monitoreo', monitoreoController::class);
+// Route::get('/listaUsuarios', listaUsuariosController::class);
+// Route::get('/faltas', faltasController::class);
+// Route::get('/entradasSalidas', entradasSalidasController::class);
 
 //Rutas crudBonos
-Route::get('/crudBonos', [BonosController::class,'index']);
-Route::get('/crudBonos/create', [BonosController::class,'create']);
+
 
 
 

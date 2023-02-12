@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Inasistencias')
+@section('title', 'Asistencias')
 
 @section('content')
     <h1>Asistencias</h1>

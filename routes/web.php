@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccesosController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
@@ -31,7 +32,8 @@ Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 
 
-//Rutas crudBonos
+//Rutas CRUDS
+Route::resource('/areas', AreaController::class);
 
 
 

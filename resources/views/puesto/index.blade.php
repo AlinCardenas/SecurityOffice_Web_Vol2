@@ -36,7 +36,7 @@
                                                     <td>{{ $puesto->salario }}</td>
                                                     <td>{{ $puesto->estatus }}</td>
                                                     <td>{{ $puesto->rol }}</td>
-                                                    <td>{{ $puesto->area_id }}</td>
+                                                    <td>{{ $puesto->area->nombre }}</td>
         
                                                     <td>
                                                         <form action="{{ route('puestos.destroy',$puesto->id) }}" method="POST">

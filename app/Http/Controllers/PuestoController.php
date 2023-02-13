@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Puesto;
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class PuestoController extends Controller
     public function create()
     {
         $puesto = new Puesto();
-        return view('puesto.create', compact('puesto'));
+        $registro = Area::pluck('nombre', 'id');
+        return view('puesto.create', compact('puesto', 'registro'));
     }
 
     /**
@@ -60,7 +62,6 @@ class PuestoController extends Controller
     public function show($id)
     {
         $puesto = Puesto::find($id);
-
         return view('puesto.show', compact('puesto'));
     }
 
@@ -73,8 +74,8 @@ class PuestoController extends Controller
     public function edit($id)
     {
         $puesto = Puesto::find($id);
-
-        return view('puesto.edit', compact('puesto'));
+        $registro = Area::pluck('nombre', 'id');
+        return view('puesto.edit', compact('puesto', 'registro'));
     }
 
     /**

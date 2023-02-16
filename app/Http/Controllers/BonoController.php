@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bono;
+use App\Models\TiposBono;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class BonoController extends Controller
     public function create()
     {
         $bono = new Bono();
-        return view('bono.create', compact('bono'));
+        $registro = TiposBono::pluck('tipo', 'id');
+        return view('bono.create', compact('bono', 'registro'));
     }
 
     /**
@@ -73,8 +75,8 @@ class BonoController extends Controller
     public function edit($id)
     {
         $bono = Bono::find($id);
-
-        return view('bono.edit', compact('bono'));
+        $registro = TiposBono::pluck('tipo', 'id');
+        return view('bono.edit', compact('bono', 'registro'));
     }
 
     /**

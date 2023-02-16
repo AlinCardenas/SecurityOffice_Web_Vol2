@@ -1,30 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
-@section('template_title')
-    Update Bono
-@endsection
+@section('title', 'Actualizar bono')
 
 @section('content')
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
-
                 @includeif('partials.errors')
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Bono</span>
-                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('bonos.update', $bono->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-
-                            @include('bono.form')
-
+                            <div class="d-flex justify-content-center mb-4 mt-4">
+                                <div class="card w-75">
+                                    <div class="card-header">
+                                        <h1 class="card-title">Actualizar bono</h1>
+                                    </div>
+                                    @include('bono.form')
+                                </div>
+                            </div>
                         </form>
                     </div>
-                </div>
             </div>
         </div>
     </section>

@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="table-responsive ">
                             <div class="mb-3">
-                                <a class="btn btn-info" href="{{route('users.create')}}" role="button">Agregar usuario</a>
+                                <a class="btn text-white btn-create" href="{{route('users.create')}}" role="button">Agregar usuario</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -28,29 +28,40 @@
                                                 <th>Email</th>
                                                 <th>Estatus</th>
                                                 <th>Puesto</th>
+                                                <th>Editar</th>
+                                                <th>Borrar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($users as $user)
-                                            <tr>
-                                                <td>{{ $user->nombre }}</td>
-                                                <td>{{ $user->appA }}</td>
-                                                <td>{{ $user->genero }}</td>
-                                                <td>{{ $user->foto }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->estatus }}</td>
-                                                <td>{{ $user->puesto_id }}</td>
+                                            <tr class="align-middle">
+                                                <td >
+                                                        {{ $user->nombre }}
+                                                </td>
+                                                <td class="">{{ $user->appA }}</td>
+                                                <td class="">{{ $user->genero }}</td>
+                                                <td  >
+                                                    <div class="d-flex justify-content-center">
+                                                        <img class="border border-2 rounded-circle me-2 ms-2" src="/imgs/{{$user->foto}}" width="70" alt="Logo del anime"></td>
+                                                    </div>    
+                                                <td >{{ $user->email }}</td>
+                                                <td >{{ $user->estatus }}</td>
+                                                <td >{{ $user->puesto->nombre }}</td>
 
                                                 <td>
+                                                    <a class="btn btn-sm btn-primary"
+                                                    href="{{ route('users.edit',$user->id) }}"><i
+                                                        class="fa fa-fw fa-edit"></i>Editar</a>
+                                                    
+                                                </td>
+                                                <td>
                                                     <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                        <a class="btn btn-sm btn-primary"
-                                                            href="{{ route('users.edit',$user->id) }}"><i
-                                                                class="fa fa-fw fa-edit"></i>Editar</a>
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"><i
                                                                 class="fa fa-fw fa-trash"></i>Borrar</button>
                                                     </form>
+                                                    
                                                 </td>
                                             </tr>
                                             @endforeach

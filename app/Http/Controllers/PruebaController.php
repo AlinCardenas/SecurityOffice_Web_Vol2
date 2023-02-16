@@ -8,6 +8,6 @@ class PruebaController extends Controller
 {
     public function __invoke()
     {
-        return view('crudBonos.create');
+        return view('tipos-bono.index');
     }
 }

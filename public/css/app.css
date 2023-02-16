@@ -1,3 +1,37 @@
 .color-bg {
     background: #D6FDF7;
 }
+
+.btn-create {
+    background: #00adff;
+}
+
+.btn-create:hover {
+    background: #00adff;
+}
+
+.btn-create:active {
+    background: #0000;
+}
+/* #00adff */
+
+
+
+.dropzone {
+	width: 200px;
+	height: 150px;
+	border: 3px dashed #000;
+	border-radius: 3px;
+	text-align: center;
+}
+
+
+.upload-input {
+	position: relative;
+	top: -150px;
+    opacity: 0;
+	left: 0;
+	width: 100%;
+	height: 143%;
+
+}

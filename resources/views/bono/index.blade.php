@@ -24,7 +24,8 @@
                                                 <th>Cantidad</th>
                                                 <th>Descripcion</th>
                                                 <th>Tipo de bono</th>
-
+                                                <th>Editar</th>
+                                                <th>Borrar</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -33,21 +34,22 @@
                                             <tr>
                                                 <td>{{ $bono->cantidad }}</td>
                                                 <td>{{ $bono->descripcion }}</td>
-                                                <td>{{ $bono->tipoBonos_id }}</td>
+                                                <td>{{ $bono->tiposBono->tipo }}</td>
 
                                                 <td>
+                                                    <a class="btn btn-sm btn-primary"
+                                                    href="{{ route('bonos.edit',$bono->id) }}"><i
+                                                        class="fa fa-fw fa-edit"></i>Editar</a>
+                                                    
+                                                </td>
+                                                <td>
                                                     <form action="{{ route('bonos.destroy',$bono->id) }}" method="POST">
-                                                        <a class="btn btn-sm btn-primary "
-                                                            href="{{ route('bonos.show',$bono->id) }}"><i
-                                                                class="fa fa-fw fa-eye"></i> Show</a>
-                                                        <a class="btn btn-sm btn-success"
-                                                            href="{{ route('bonos.edit',$bono->id) }}"><i
-                                                                class="fa fa-fw fa-edit"></i> Edit</a>
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger btn-sm"><i
-                                                                class="fa fa-fw fa-trash"></i> Delete</button>
+                                                                class="fa fa-fw fa-trash"></i>Borrar</button>
                                                     </form>
+                                                    
                                                 </td>
                                             </tr>
                                             @endforeach

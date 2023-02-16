@@ -35,7 +35,7 @@
                                         <tbody>
                                             @foreach ($users as $user)
                                             <tr class="align-middle">
-                                                <td class="text-center">
+                                                <td >
                                                         {{ $user->nombre }}
                                                 </td>
                                                 <td class="">{{ $user->appA }}</td>

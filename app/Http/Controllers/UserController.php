@@ -58,7 +58,7 @@ class UserController extends Controller
         
         
         $registro['password'] = $hashed;
-        dump($registro['password']);
+        // dump($registro['password']);
         
         if($imagen=$request->file('foto')){
             $rutaGuardarImg = 'imgs/';
@@ -70,7 +70,7 @@ class UserController extends Controller
         $user = User::create($registro);
 
         return redirect()->route('users.index')
-            ->with('success', 'User created successfully.');
+            ->with('success', 'User created successfully.'); 
     }
 
     /**
@@ -95,8 +95,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-
-        return view('user.edit', compact('user'));
+        $registro = Puesto::pluck('nombre', 'id');
+        return view('user.edit', compact('user', 'registro'));
     }
 
     /**
@@ -110,7 +110,16 @@ class UserController extends Controller
     {
         request()->validate(User::$rules);
 
-        $user->update($request->all());
+        $registro = $request->all();
+
+        if($imagen=$request->file('foto')){
+            $rutaGuardarImg = 'imgs/';
+            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imgRegistro);
+            $registro['foto'] = "$imgRegistro";
+        }
+
+        $user->update($registro);
 
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully');

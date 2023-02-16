@@ -7,23 +7,23 @@
         <div class="card-body">
             <label for="nombre" class="form-label">Nombre: </label>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:">
+              <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:" required>
             </div>
 
             <label for="salario" class="form-label">Salario: </label>
             <div class="input-group mb-3">
-              <input type="number" class="form-control" name="salario" id="salario" aria-describedby="basic-addon3" placeholder="Ingresa la cantidad a otorgar por el bono:">
+              <input type="number" class="form-control" name="salario" id="salario" aria-describedby="basic-addon3" placeholder="Ingresa la cantidad a otorgar por el bono:" required>
             </div>
 
             <label for="estatus" class=" form-label">Estatus: </label>
-            <select class="form-select" aria-label="Default select example" name="estatus" id="estatus">
+            <select class="form-select" aria-label="Default select example" name="estatus" id="estatus" required>
                 <option value="" >Selecciona un estatus para puesto:</option>
                 <option value="activo">Activo</option>
                 <option value="inactivo">Inactivo</option>
             </select>
 
             <label for="rol" class="mt-4 form-label">Elige el rol del puesto: </label>
-            <select class="form-select" aria-label="Default select example" name="rol" id="rol">
+            <select class="form-select" aria-label="Default select example" name="rol" id="rol" required>
                 <option value="">Selecciona el rol para puesto:</option>
                 <option value="Sin privilegios">Sin privilegios</option>
                 <option value="Administrador">Administrador</option>

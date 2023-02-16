@@ -16,27 +16,26 @@
                             <div class="card-header">
                                 <h1 class="card-title">Actualizar puesto</h4>
                             </div>
-                            
                             <div class="card-body">
                                 <label for="basic-nombre" class="form-label">Nombre: </label>
                                 <div class="input-group mb-3">
-                                  <input type="text" class="form-control" name="nombre" value="{{$puesto->nombre}}" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:">
+                                  <input type="text" class="form-control" name="nombre" value="{{$puesto->nombre}}" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:" required>
                                 </div>
                     
                                 <label for="salario" class="form-label">Salario: </label>
                                 <div class="input-group mb-3">
-                                  <input type="number" class="form-control" name="salario" id="salario" value="{{$puesto->salario}}" aria-describedby="basic-addon3" placeholder="Ingresa la cantidad a otorgar por el bono:">
+                                  <input type="number" class="form-control" name="salario" id="salario" value="{{$puesto->salario}}" aria-describedby="basic-addon3" placeholder="Ingresa la cantidad a otorgar por el bono:" required>
                                 </div>
                     
                                 <label for="estatus" class=" form-label">Estatus: </label>
-                                <select class="form-select" aria-label="Default select example" name="estatus" id="estatus">
+                                <select class="form-select" aria-label="Default select example" name="estatus" id="estatus" required>
                                     <option value="" >Selecciona un estatus para puesto:</option>
                                     <option <?php if(old('estatus', $puesto->estatus)=='activo') {echo("selected");} ?> value="activo">Activo</option>
                                     <option <?php if(old('estatus', $puesto->estatus)=='inactivo') {echo("selected");} ?> value="inactivo">Inactivo</option>
                                 </select>
                     
                                 <label for="rol" class="mt-4 form-label">Elige el rol del puesto: </label>
-                                <select class="form-select" aria-label="Default select example" name="rol" id="rol">
+                                <select class="form-select" aria-label="Default select example" name="rol" id="rol" required>
                                     <option value="">Selecciona el rol para puesto:</option>
                                     <option <?php if(old('rol', $puesto->rol)=='Sin privilegios') {echo("selected");} ?> value="Sin privilegios">Sin privilegios</option>
                                     <option <?php if(old('rol', $puesto->rol)=='Administrador') {echo("selected");} ?> value="Administrador">Administrador</option>
@@ -56,7 +55,6 @@
                             </div>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

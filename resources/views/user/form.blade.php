@@ -5,23 +5,22 @@
             <h1 class="card-title">Crear usuario</h1>
         </div>
         <div class="card-body">
-
             <div class="card-body">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre:">
+                    <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre:" required>
                   </div>
                   <label for="appA" class="form-label">Ingresa el primer apellido: </label>
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="appA" id="appA" aria-describedby="basic-addon3" placeholder="Ingresa el primer apellido:">
+                    <input type="text" class="form-control" name="appA" id="appA" aria-describedby="basic-addon3" placeholder="Ingresa el primer apellido:" required>
                   </div>
                   <label for="appB" class="form-label">Ingresa el primer apellido: </label>
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="appB" id="appB" aria-describedby="basic-addon3" placeholder="Ingresa el segundo apellido:">
+                    <input type="text" class="form-control" name="appB" id="appB" aria-describedby="basic-addon3" placeholder="Ingresa el segundo apellido:" required>
                   </div>
       
                   <label for="fechaN" class="form-label">Ingresa la fecha de nacimiento: </label>
                   <div class="input-group mb-3">
-                    <input type="date" class="form-control" name="fechaN" id="fechaN" aria-describedby="basic-addon3">
+                    <input type="date" class="form-control" name="fechaN" id="fechaN" aria-describedby="basic-addon3" required>
                   </div>    
                   <div class="mt-3">
                       <label for="genero" class="form-label">Género</label><br>
@@ -32,7 +31,6 @@
                   </div>
                   {{--  --}}
 
-
                   <div id="element" style="display:none;">
                     <div class="d-flex justify-content-center mt-4">
                             <img id="imgSelect" alt="img" class="w-25 h-25 border border-4 border-dark rounded-circle">
@@ -42,7 +40,7 @@
                     <div class="d-flex justify-content-center mt-4">
                         <div class="dropzone ">
                             <img src="{{asset('/img/subir.png')}}" width="150" height="150" class="upload-icon" />
-                            <input type="file" class="form-control upload-input" id="foto" name="foto">
+                            <input type="file" class="form-control upload-input" id="foto" name="foto" required>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center mb-4 mt-3">
@@ -52,11 +50,11 @@
                     {{--  --}}
                     <label for="email" class="form-label">Correo electronico: </label>
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control" name="email" id="email" aria-describedby="basic-addon3" placeholder="Ingresa el correo electronico:">
+                      <input type="text" class="form-control" name="email" id="email" aria-describedby="basic-addon3" placeholder="Ingresa el correo electronico:" required>
                     </div>
                     <label for="password" class="form-label">Contraseña: </label>
                     <div class="input-group mb-3">
-                      <input type="password" class="form-control" name="password" id="password" aria-describedby="basic-addon3" placeholder="Ingresa la contraseña:">
+                      <input type="password" class="form-control" name="password" id="password" aria-describedby="basic-addon3" placeholder="Ingresa la contraseña:" required>
                     </div>
                     <div class="form-group mb-4">
                         {{ Form::label('Puesto') }}

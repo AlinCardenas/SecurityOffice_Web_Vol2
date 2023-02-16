@@ -15,6 +15,7 @@ class User extends Authenticatable
 		'appA' => 'required',
 		'appB' => 'required',
 		'fechaN' => 'required',
+        'foto' => 'required|mimes:jpeg,png,jpg,gif|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
     ];
     /**
      * The attributes that are mass assignable.
@@ -42,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+
+    public function puesto()
+    {
+        return $this->hasOne('App\Models\Puesto', 'id', 'puesto_id');
+    }
 }

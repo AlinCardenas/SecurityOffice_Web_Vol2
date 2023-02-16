@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Puesto;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UserController
@@ -32,7 +34,8 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
-        return view('user.create', compact('user'));
+        $registro = Puesto::pluck('nombre', 'id');
+        return view('user.create', compact('user', 'registro'));
     }
 
     /**
@@ -45,7 +48,26 @@ class UserController extends Controller
     {
         request()->validate(User::$rules);
 
-        $user = User::create($request->all());
+        $registro = $request->all();
+
+        $gen_pass = $request->password;
+
+        $hashed = Hash::make($gen_pass, [
+            'rounds' => 15,
+        ]);
+        
+        
+        $registro['password'] = $hashed;
+        dump($registro['password']);
+        
+        if($imagen=$request->file('foto')){
+            $rutaGuardarImg = 'imgs/';
+            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imgRegistro);
+            $registro['foto'] = "$imgRegistro";
+        }
+
+        $user = User::create($registro);
 
         return redirect()->route('users.index')
             ->with('success', 'User created successfully.');

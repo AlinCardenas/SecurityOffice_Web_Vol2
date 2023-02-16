@@ -5,7 +5,7 @@
         </div>
         
         <div class="card-body">
-            <label for="basic-nombre" class="form-label">Nombre: </label>
+            <label for="nombre" class="form-label">Nombre: </label>
             <div class="input-group mb-3">
               <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:">
             </div>

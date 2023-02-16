@@ -10,7 +10,14 @@
 
             <form method="POST" action="{{ route('bonos.store') }}" role="form" enctype="multipart/form-data">
                 @csrf
-                @include('bono.form')
+                <div class="d-flex justify-content-center mb-4 mt-4">
+                    <div class="card w-75">
+                        <div class="card-header">
+                            <h1 class="card-title">Crear bono</h1>
+                        </div>
+                        @include('bono.form')
+                    </div>
+                </div>
             </form>
         </div>
     </div>

@@ -9,7 +9,14 @@
             @includeif('partials.errors')
             <form method="POST" action="{{ route('turnos.store') }}" role="form" enctype="multipart/form-data">
                 @csrf
-                @include('turno.form')
+                <div class="d-flex justify-content-center mb-4 mt-4">
+                        <div class="card w-75">
+                            <div class="card-header">
+                                <h1 class="card-title">Crear turno</h1>
+                            </div>
+                            @include('turno.form')
+                        </div>
+                    </div>
             </form>
         </div>
     </div>

@@ -30,7 +30,7 @@
                                                 <th>Puesto</th>
                                                 <th>Editar</th>
                                                 <th>Borrar</th>
-                                            </tr>
+                                            </tr> 
                                         </thead>
                                         <tbody>
                                             @foreach ($users as $user)
@@ -61,7 +61,6 @@
                                                         <button type="submit" class="btn btn-danger btn-sm"><i
                                                                 class="fa fa-fw fa-trash"></i>Borrar</button>
                                                     </form>
-                                                    
                                                 </td>
                                             </tr>
                                             @endforeach

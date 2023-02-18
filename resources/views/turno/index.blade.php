@@ -24,7 +24,8 @@
                                                 <th>Turno</th>
                                                 <th>Hora de inicio</th>
                                                 <th>Hora de fin</th>
-                                                <th></th>
+                                                <th>Editar</th>
+                                                <th>Borrar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -35,16 +36,21 @@
                                                     <td>{{ $turno->hora_fin }}</td>
         
                                                     <td>
+                                                        <a class="btn btn-sm btn-primary"
+                                                        href="{{ route('turnos.edit',$turno->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i>Editar</a>
+                                                        
+                                                    </td>
+                                                    <td>
                                                         <form action="{{ route('turnos.destroy',$turno->id) }}" method="POST">
-                                                            <a class="btn btn-sm btn-primary " href="{{ route('turnos.show',$turno->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                            <a class="btn btn-sm btn-success" href="{{ route('turnos.edit',$turno->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                                                    class="fa fa-fw fa-trash"></i>Borrar</button>
                                                         </form>
                                                     </td>
                                                 </tr>
-                                            @endforeach
+                                          @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -58,9 +64,4 @@
     </div>
 </div>
 @endsection
-
-
-
-
-
 

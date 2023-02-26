@@ -4,6 +4,7 @@
     
 @section('content')
 <body>
+    
     <div class="content d-flex justify-content-center">
         <div class="card w-100">
             <div class="row">
@@ -29,6 +30,7 @@
                                         
                                     </tbody>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>

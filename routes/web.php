@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccesosController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
@@ -27,12 +28,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::middleware('auth')->group(function() {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('inicio');
+    
 });
+
 
 //Rutas solo views
 // Route::get('/listaUsuarios', listaUsuariosController::class);
+
 Route::get('/monitoreo', monitoreoController::class);
 Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
@@ -72,15 +79,12 @@ Route::resource('/bonos', BonoController::class);
 Route::resource('/puestos', PuestoController::class);
 Route::resource('/turnos', TurnoController::class);
 
-
-
-
-
-
-
-
-
-
-
+Route::prefix('auth')->group(function(){
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('loginVerify', [AuthController::class, 'loginVerify'])->name('loginVerify.store');
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('/registerVerify', [AuthController::class, 'registerVerify'])->name('registerVerify.store');
+    Route::post('logOut', [AuthController::class, 'logOut'])->name('logOut');
+});
 
 

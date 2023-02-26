@@ -101,16 +101,23 @@
                     <hr>
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                            <img   class="">
+
+                            <img class="rounded-circle" src="/imgs/{{Auth::user()->foto}}" width="30" height="30" alt="Usuario">
                             <span class="d-none d-sm-inline mx-1 text-black">Usuario</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">Nombre</a></li>
-                            <li><a class="dropdown-item" href="#">Rol</a></li>
+                            <li><a class="dropdown-item" href="#">{{ Auth::user()->nombre }}</a></li>
+                            <li><a class="dropdown-item" href="#">{{ Auth::user()->puesto->nombre }}</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Cerra sesión</a></li>
+                            <li>
+                                <form method="POST" action="{{route('logOut')}}" >
+                                    @csrf
+                                    <button class="dropdown-item">Cerrar sesion</button>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>

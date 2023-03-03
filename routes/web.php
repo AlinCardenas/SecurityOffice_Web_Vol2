@@ -9,7 +9,7 @@ use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
 use App\Http\Controllers\InasistenciaController;
 use App\Http\Controllers\listaUsuariosController;
-use App\Http\Controllers\monitoreoController;
+use App\Http\Controllers\MonitoreoController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\TiposBonoController;
@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function() {
 //Rutas solo views
 // Route::get('/listaUsuarios', listaUsuariosController::class);
 
-Route::get('/monitoreo', monitoreoController::class);
+Route::get('/monitoreo', MonitoreoController::class);
 Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 

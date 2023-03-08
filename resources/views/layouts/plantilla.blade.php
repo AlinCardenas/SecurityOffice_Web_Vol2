@@ -63,18 +63,27 @@
                                 </a>
                             </li>
                         </div>
-                        <div class="d-flex flex-row align-items-center">
-                            <div class="me-3">
-                                <img src="{{asset('img/monitoreo.png') }}" alt="" width="30" height="30">
-                            </div>
-                            <li class="nav-item">
-                                <a href="/monitoreo" class="nav-link align-middle px-0">
-                                    <i class="fs-4"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Monitoreo</span>
+
+                        <li>
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="me-3">
+                                    <img src="{{asset('img/monitoreo.png') }}" alt="" width="30" height="30">
+                                </div>
+                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Monitoreo</span> 
                                 </a>
-                            </li>
-                        </div>                            
+                            </div>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li>
+                                    <a href="{{route('bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Voltaje</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{route('puestos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Temperaturas</span></a>
+                                </li>
+                            </ul>
+                        </li> 
+
                             <li>
-                                
                                     <div class="d-flex flex-row align-items-center">
                                         <div class="me-3">
                                             <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
@@ -96,6 +105,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                         {{-- AQUI --}}
                     </ul>
                     <hr>

@@ -7,6 +7,7 @@ use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
+use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\InasistenciaController;
 use App\Http\Controllers\listaUsuariosController;
 use App\Http\Controllers\MonitoreoController;
@@ -79,6 +80,7 @@ Route::resource('/bonos', BonoController::class);
 Route::resource('/puestos', PuestoController::class);
 Route::resource('/turnos', TurnoController::class);
 
+
 Route::prefix('auth')->group(function(){
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('loginVerify', [AuthController::class, 'loginVerify'])->name('loginVerify.store');
@@ -88,3 +90,9 @@ Route::prefix('auth')->group(function(){
 });
 
 
+//Rutas graficos
+Route::get('/welcome', [GraficosController::class, 'welcome'])->name('welcome');
+Route::get('/faltas', [GraficosController::class, 'faltas'])->name('faltas');
+Route::get('/entradasSalidas', [GraficosController::class, 'entradasSalidas'])->name('entradasSalidas');
+Route::get('/temperatura', [GraficosController::class, 'temperatura'])->name('temperatura');
+Route::get('/voltaje', [GraficosController::class, 'voltaje'])->name('voltaje');

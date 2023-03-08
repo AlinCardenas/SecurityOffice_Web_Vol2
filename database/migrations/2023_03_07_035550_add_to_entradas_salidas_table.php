@@ -14,7 +14,7 @@ class AddToEntradasSalidasTable extends Migration
     public function up()
     {
         Schema::table('entradas_salidas', function (Blueprint $table) {
-            $table->string('fecha')->after('salida');
+            $table->date('fecha')->after('salida');
         });
     }
 

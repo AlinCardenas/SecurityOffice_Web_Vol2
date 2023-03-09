@@ -75,9 +75,6 @@
                             </div>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li>
-                                    <a href="{{route('entradasSalidas')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
-                                </li>
-                                <li>
                                     <a href="{{route('voltaje')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Voltaje</span></a>
                                 </li>
                                 <li>

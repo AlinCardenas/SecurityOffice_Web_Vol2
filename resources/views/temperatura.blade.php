@@ -5,11 +5,12 @@
 @section('content')
     <h1>Temperatura</h1>
     <figure class="highcharts-figure">
-        <div id="container"></div>
-    </figure>
-    <div id="loadplace">
+        <div class="d-flex justify-content-center">
+            <div id="container" class="w-100 mx-5">
 
-    </div>
+            </div>
+        </div>
+    </figure>
 
 </body>
 <script src="https://code.highcharts.com/highcharts.js"></script>

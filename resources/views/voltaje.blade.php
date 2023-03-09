@@ -5,7 +5,11 @@
 @section('content')
     <h1>Voltaje</h1>
     <figure class="highcharts-figure">
-        <div id="container"></div>
+        <div class="d-flex justify-content-center">
+            <div id="container" class="w-100 ">
+
+            </div>
+        </div>
     </figure>
 
 

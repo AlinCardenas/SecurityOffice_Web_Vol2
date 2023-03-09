@@ -23,16 +23,19 @@
                         </a>
                     </div>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')    
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/asistencia.png') }}" alt="" width="30" height="30">
                             </div>
-                            <li class="nav-item">
-                                <a href="/" class="nav-link align-middle px-0">
-                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Asistencia</span>
-                                </a>
-                            </li>
-                        </div>
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link align-middle px-0">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Asistencia</span>
+                                    </a>
+                                </li>
+                            </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/falta.png') }}" alt="" width="30" height="30">
@@ -43,6 +46,8 @@
                                 </a>
                             </li>
                         </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente') 
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/acceso.png') }}" alt="" width="30" height="30">
@@ -53,6 +58,8 @@
                                 </a>
                             </li>
                         </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador')
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/usuarios.png') }}" alt="" width="30" height="30">
@@ -63,7 +70,8 @@
                                 </a>
                             </li>
                         </div>
-
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador')
                         <li>
                             <div class="d-flex flex-row align-items-center">
                                 <div class="me-3">
@@ -81,31 +89,51 @@
                                     <a href="{{route('temperatura')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Temperatura</span></a>
                                 </li>
                             </ul>
-                        </li> 
-
+                        </li>                             
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')
                             <li>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div class="me-3">
-                                            <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
-                                        </div>
-                                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                            <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">CRUD</span> 
-                                        </a>
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="me-3">
+                                        <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
                                     </div>
-                                    
+                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">CRUD</span> 
+                                    </a>
+                                </div>    
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Usuarios</span></a>
+                                    </li>
+                                    @if (Auth::user()->puesto->rol=='administrador')
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Areas</span></a>
+                                    </li>
+                                    @endif
                                     <li>
                                         <a href="{{route('bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
                                     </li>
+                                    @if (Auth::user()->puesto->rol=='administrador')
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
+                                    </li>
+                                    @endif
+                                    @if (Auth::user()->puesto->rol=='administrador')
                                     <li>
                                         <a href="{{route('puestos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Puestos</span></a>
                                     </li>
+                                    @endif
                                     <li>
-                                        <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Turnos</span></a>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Tipos de bonos</span></a>
                                     </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Turnos</span></a>
+                                    </li>
+                                    
+
                                 </ul>
                             </li>
-
+                        @endif
                         {{-- AQUI --}}
                     </ul>
                     <hr>

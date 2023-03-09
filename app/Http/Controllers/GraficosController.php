@@ -114,7 +114,7 @@ class GraficosController extends Controller
     public function temperatura(){
         $voltaje = 3.5;
 
-        return view('temperatura', ['voltaje' => json_encode($voltaje)]);
+        return view('temperatura', ['temperatura' => json_encode($voltaje)]);
     }
 
     public function voltaje(){

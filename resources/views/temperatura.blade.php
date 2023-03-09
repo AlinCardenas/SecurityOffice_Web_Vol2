@@ -45,7 +45,7 @@ pane: {
 
 // the value axis
 yAxis: {
-    min: 0,
+    min: 0, 
     max: 35,
     // tickPixelInterval: 10,
     tickPosition: 'inside',

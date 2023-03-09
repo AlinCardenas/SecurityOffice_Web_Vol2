@@ -6,7 +6,7 @@
     <h1>Voltaje</h1>
     <figure class="highcharts-figure">
         <div class="d-flex justify-content-center">
-            <div id="container" class="w-100 ">
+            <div id="container" class="w-100 mx-5">
 
             </div>
         </div>
@@ -50,7 +50,7 @@ Highcharts.chart('container', {
     yAxis: {
         min: 0,
         max: 5,
-        tickPixelInterval: 5,
+        tickPixelInterval: 40,
         tickPosition: 'inside',
         tickColor: Highcharts.defaultOptions.chart.backgroundColor || '#FFFFFF',
         tickLength: 5,
@@ -80,12 +80,6 @@ Highcharts.chart('container', {
             color: 'rgba(230, 230, 53, 0.42)', // yellow
             thickness: 20
         }, 
-        //{
-        //     from: 35,
-        //     to: 50,
-        //     color: '#DF5353', // red
-        //     thickness: 20
-        // }
     ]
     },
 

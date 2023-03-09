@@ -7,6 +7,7 @@ use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
+use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\InasistenciaController;
 use App\Http\Controllers\listaUsuariosController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\TiposBonoController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -96,3 +98,12 @@ Route::get('/faltas', [GraficosController::class, 'faltas'])->name('faltas');
 Route::get('/entradasSalidas', [GraficosController::class, 'entradasSalidas'])->name('entradasSalidas');
 Route::get('/temperatura', [GraficosController::class, 'temperatura'])->name('temperatura');
 Route::get('/voltaje', [GraficosController::class, 'voltaje'])->name('voltaje');
+
+// Rutas de vista usuario
+Route::get('/usuario/asistencias', [UserViewController::class, 'asistencias'])->name('userV.asistencia');
+Route::get('/usuario/inasistencias', [UserViewController::class, 'inasistencias'])->name('user.inasistencias');
+Route::get('/usuario/mbonos', [UserViewController::class, 'mbonos'])->name('user.mbonos');
+Route::get('/usuario/bonos', [UserViewController::class, 'bonos'])->name('user.bonos');
+
+// Pertinente al perfil
+Route::get('/usuario/profile', [EditProfileController::class, 'index'])->name('edit.profile');

@@ -19,7 +19,7 @@ class Puestos extends Migration
             $table->string('nombre');
             $table->integer('salario');
             $table->enum('estatus', ['activo', 'inactivo']);
-            $table->string('rol');
+            $table->enum('rol', ['administrador', 'gerente', 'usuario']);
             $table->bigInteger('area_id')->unsigned();
             $table->timestamps();
 

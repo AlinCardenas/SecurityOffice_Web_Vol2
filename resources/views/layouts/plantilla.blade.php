@@ -143,11 +143,11 @@
                                 </div>    
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Usuarios</span></a>
+                                        <a href="{{route('users.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Usuarios</span></a>
                                     </li>
                                     @if (Auth::user()->puesto->rol=='administrador')
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Areas</span></a>
+                                        <a href="{{route('areas.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Areas</span></a>
                                     </li>
                                     @endif
                                     <li>

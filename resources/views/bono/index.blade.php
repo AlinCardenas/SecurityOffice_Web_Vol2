@@ -3,8 +3,8 @@
 @section('title', 'Listado de bonos')
 
 @section('content')
-<div class="content d-flex justify-content-center">
-    <div class="card w-75">
+<div class="content d-flex justify-content-center mx-5">
+    <div class="card w-100">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">

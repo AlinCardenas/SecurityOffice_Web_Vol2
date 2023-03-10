@@ -25,9 +25,9 @@
             <label for="rol" class="mt-4 form-label">Elige el rol del puesto: </label>
             <select class="form-select" aria-label="Default select example" name="rol" id="rol" required>
                 <option value="">Selecciona el rol para puesto:</option>
-                <option value="Sin privilegios">Sin privilegios</option>
-                <option value="Administrador">Administrador</option>
-                <option value="Visualizador">Visualizador</option>
+                <option value="1">Administrador</option>
+                <option value="2">Gerente</option>
+                <option value="3">Usuario</option>
             </select>
 
             <div class="form-group mt-4">

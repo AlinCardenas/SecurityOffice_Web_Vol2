@@ -155,7 +155,7 @@
                                     </li>
                                     @if (Auth::user()->puesto->rol=='administrador')
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
+                                        <a href="{{route('entradas.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
                                     </li>
                                     @endif
                                     @if (Auth::user()->puesto->rol=='administrador')
@@ -164,10 +164,10 @@
                                     </li>
                                     @endif
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Tipos de bonos</span></a>
+                                        <a href="{{route('tipos-bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Tipos de bonos</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Turnos</span></a>
+                                        <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Turnos</span></a>
                                     </li>
                                     
 
@@ -187,7 +187,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">{{ Auth::user()->nombre }}</a></li>
                             <li><a class="dropdown-item" href="#">{{ Auth::user()->puesto->nombre }}</a></li>
-                            <li><a class="dropdown-item" href="{{route('edit.profile')}}">Editar perfil</a></li>
+                            <li><a class="dropdown-item" href="{{route('edit.profile', Auth::user()->id)}}">Editar perfil</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

@@ -105,9 +105,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param  User $user
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function update(Request $request, User $user)
-    {
+    { 
         request()->validate(User::$rules);
 
         $registro = $request->all();

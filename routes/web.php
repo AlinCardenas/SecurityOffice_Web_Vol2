@@ -9,9 +9,10 @@ use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
 use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\EntradasSalidaController;
 use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\InasistenciaController;
-use App\Http\Controllers\listaUsuariosController;
+use App\Http\Controllers\listaUsuariosController; 
 use App\Http\Controllers\MonitoreoController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PuestoController;
@@ -52,6 +53,15 @@ Route::post('/areas/{id}', [AreaController::class, 'show'])->name('areas.show');
 Route::get('/areas/edit/{id}', [AreaController::class, 'edit'])->name('areas.edit');
 Route::put('/areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('/areas/{id}', [AreaController::class, 'destroy'])->name('areas.destroy');
+
+// Entradas salidas
+Route::get('/entradas-salidas', [EntradasSalidaController::class, 'index'])->name('entradas.index');
+Route::get('/entradas-salidas/create', [EntradasSalidaController::class, 'create'])->name('entradas.create');
+Route::post('/entradas-salidas/area', [EntradasSalidaController::class, 'store'])->name('entradas.store');
+Route::post('/entradas-salidas/{id}', [EntradasSalidaController::class, 'show'])->name('entradas.show');
+Route::get('/entradas-salidas/edit/{id}', [EntradasSalidaController::class, 'edit'])->name('entradas.edit');
+Route::put('/entradas-salidas/{area}', [EntradasSalidaController::class, 'update'])->name('entradas.update');
+Route::delete('/entradas-salidas/{id}', [EntradasSalidaController::class, 'destroy'])->name('entradas.destroy');
 
 //Usuarios
 Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
@@ -103,4 +113,6 @@ Route::get('/usuario/mbonos', [UserViewController::class, 'mbonos'])->name('user
 Route::get('/usuario/bonos', [UserViewController::class, 'bonos'])->name('user.bonos');
 
 // Pertinente al perfil
-Route::get('/usuario/profile', [EditProfileController::class, 'index'])->name('edit.profile'); 
+Route::get('/usuario/profile/{id}', [EditProfileController::class, 'index'])->name('edit.profile'); 
+Route::put('/usuarios/profile/{user}', [EditProfileController::class, 'update'])->name('editusers.update');
+

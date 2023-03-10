@@ -1,29 +1,48 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group">
-            {{ Form::label('entrada') }}
-            {{ Form::text('entrada', $entradasSalida->entrada, ['class' => 'form-control' . ($errors->has('entrada') ? ' is-invalid' : ''), 'placeholder' => 'Entrada']) }}
-            {!! $errors->first('entrada', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('salida') }}
-            {{ Form::text('salida', $entradasSalida->salida, ['class' => 'form-control' . ($errors->has('salida') ? ' is-invalid' : ''), 'placeholder' => 'Salida']) }}
-            {!! $errors->first('salida', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('usuario_id') }}
-            {{ Form::text('usuario_id', $entradasSalida->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'placeholder' => 'Usuario Id']) }}
-            {!! $errors->first('usuario_id', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('bono_id') }}
-            {{ Form::text('bono_id', $entradasSalida->bono_id, ['class' => 'form-control' . ($errors->has('bono_id') ? ' is-invalid' : ''), 'placeholder' => 'Bono Id']) }}
-            {!! $errors->first('bono_id', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+
+
+
+
+
+
+
+<div class="d-flex justify-content-center mb-4 mt-4">
+    <div class="card w-75">
+        <div class="card-header">
+            <h1 class="card-title">Crear registro de entrada</h1>
+        </div>
+        <div class="card-body">
+            <div class="card-body">
+                <div class="form-group">
+                    {{ Form::label('entrada:') }}
+                    <input type="time" name="entrada" id="entrada" class="form-control">
+                </div><br>
+                <div class="form-group">
+                    {{ Form::label('salida:') }}
+                    <input type="time" name="salida" id="salida" class="form-control">
+                </div><br>
+                <div class="form-group">
+                    <label>Selecciona al usuario:</label>
+                    {{ Form::select('usuario_id', $registro, $entradasSalida->usuario_id, ['class' => 'form-control' . ($errors->has('usuario_id') ? ' is-invalid' : ''), 'placeholder' => 'Nombre de usuario']) }}
+                    {!! $errors->first('usuario_id', '<div class="invalid-feedback">:message</div>') !!}
+                </div><br>
+                <div class="form-group">
+                    {{ Form::label('bono') }}
+                    {{ Form::select('bono_id', $registrob, $entradasSalida->bono_id, ['class' => 'form-control' . ($errors->has('bono_id') ? ' is-invalid' : ''), 'placeholder' => 'Bono Id']) }}
+                    {!! $errors->first('bono_id', '<div class="invalid-feedback">:message</div>') !!}
+                </div><br>
+                <div class="d-flex justify-content-center mt-4">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+

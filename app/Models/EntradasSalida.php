@@ -35,7 +35,7 @@ class EntradasSalida extends Model
      *
      * @var array
      */
-    protected $fillable = ['entrada','salida','usuario_id','bono_id'];
+    protected $fillable = ['entrada','salida', 'usuario_id','bono_id'];
 
 
     /**

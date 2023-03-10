@@ -37,9 +37,9 @@
                                 <label for="rol" class="mt-4 form-label">Elige el rol del puesto: </label>
                                 <select class="form-select" aria-label="Default select example" name="rol" id="rol" required>
                                     <option value="">Selecciona el rol para puesto:</option>
-                                    <option <?php if(old('rol', $puesto->rol)=='Sin privilegios') {echo("selected");} ?> value="Sin privilegios">Sin privilegios</option>
-                                    <option <?php if(old('rol', $puesto->rol)=='Administrador') {echo("selected");} ?> value="Administrador">Administrador</option>
-                                    <option <?php if(old('rol', $puesto->rol)=='Visualizador') {echo("selected");} ?> value="Visualizador">Visualizador</option>
+                                    <option <?php if(old('rol', $puesto->rol)=='administrador') {echo("selected");} ?> value="1">Administrador</option>
+                                    <option <?php if(old('rol', $puesto->rol)=='gerente') {echo("selected");} ?> value="2">Gerente</option>
+                                    <option <?php if(old('rol', $puesto->rol)=='usuario') {echo("selected");} ?> value="3">Usuario</option>
                                 </select>
                     
                                 <div class="form-group mt-4">

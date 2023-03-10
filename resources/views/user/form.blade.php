@@ -60,7 +60,7 @@
                         {{ Form::label('Puesto') }}
                         {{ Form::select('puesto_id', $registro, $user->puesto_id, ['class' => 'form-control' . ($errors->has('puesto_id') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona el puesto']) }}
                         {!! $errors->first('puesto_id', '<div class="invalid-feedback">:message</div>') !!}
-                    </div>
+                    </div> 
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-primary">Enviar</button>

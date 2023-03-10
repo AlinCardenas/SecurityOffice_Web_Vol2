@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bono;
 use App\Models\EntradasSalida;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 /**
@@ -16,7 +19,7 @@ class EntradasSalidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
         $entradasSalidas = EntradasSalida::paginate();
 
@@ -31,8 +34,10 @@ class EntradasSalidaController extends Controller
      */
     public function create()
     {
-        $entradasSalida = new EntradasSalida();
-        return view('entradas-salida.create', compact('entradasSalida'));
+        $entradasSalida = new EntradasSalida(); 
+        $registro = User::pluck('nombre', 'id');
+        $registrob = Bono::pluck('cantidad', 'id');
+        return view('entradas-salida.create', compact('entradasSalida', 'registro', 'registrob'));
     }
 
     /**
@@ -43,11 +48,20 @@ class EntradasSalidaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(EntradasSalida::$rules);
+        $hoy = Carbon::today();
 
-        $entradasSalida = EntradasSalida::create($request->all());
+        $registro = new EntradasSalida();
 
-        return redirect()->route('entradas-salidas.index')
+        $registro->entrada = $request->entrada;
+        $registro->salida = $request->salida;
+        $registro->fecha = $hoy;
+        $registro->usuario_id = $request->usuario_id;
+        $registro->bono_id = $request->bono_id;
+
+        // $entradasSalida = EntradasSalida::create($request->all());
+        $registro->save();
+
+        return redirect()->route('entradas.index')
             ->with('success', 'EntradasSalida created successfully.');
     }
 
@@ -73,8 +87,9 @@ class EntradasSalidaController extends Controller
     public function edit($id)
     {
         $entradasSalida = EntradasSalida::find($id);
-
-        return view('entradas-salida.edit', compact('entradasSalida'));
+        $registro = User::pluck('nombre', 'id');
+        $registrob = Bono::pluck('cantidad', 'id');
+        return view('entradas-salida.edit', compact('entradasSalida', 'registro', 'registrob'));
     }
 
     /**
@@ -86,12 +101,14 @@ class EntradasSalidaController extends Controller
      */
     public function update(Request $request, EntradasSalida $entradasSalida)
     {
+        
         request()->validate(EntradasSalida::$rules);
 
         $entradasSalida->update($request->all());
 
-        return redirect()->route('entradas-salidas.index')
-            ->with('success', 'EntradasSalida updated successfully');
+        // $id->save();
+
+        return redirect()->route('entradas.index')->with('success', 'EntradasSalida updated successfully');
     }
 
     /**
@@ -103,7 +120,7 @@ class EntradasSalidaController extends Controller
     {
         $entradasSalida = EntradasSalida::find($id)->delete();
 
-        return redirect()->route('entradas-salidas.index')
+        return redirect()->route('entradas.index')
             ->with('success', 'EntradasSalida deleted successfully');
     }
 }

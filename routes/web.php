@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccesosController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AsisInasisController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
@@ -31,20 +32,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Asistencias e inasistencias
 Route::middleware('auth')->group(function() {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('inicio');
-    
+    Route::get('/', [AsisInasisController::class, 'asistencias'])->name('inicio');
 });
-
 
 //Rutas solo views
 // Route::get('/listaUsuarios', listaUsuariosController::class);
 
+Route::get('/faltas-registros', [AsisInasisController::class, 'inasistencias'])->name('faltas.registros');
 Route::get('/monitoreo', MonitoreoController::class);
-Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 
 // AREAS
@@ -106,4 +103,4 @@ Route::get('/usuario/mbonos', [UserViewController::class, 'mbonos'])->name('user
 Route::get('/usuario/bonos', [UserViewController::class, 'bonos'])->name('user.bonos');
 
 // Pertinente al perfil
-Route::get('/usuario/profile', [EditProfileController::class, 'index'])->name('edit.profile');
+Route::get('/usuario/profile', [EditProfileController::class, 'index'])->name('edit.profile'); 

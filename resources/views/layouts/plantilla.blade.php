@@ -81,7 +81,7 @@
                                 <img src="{{asset('img/falta.png') }}" alt="" width="30" height="30">
                             </div>
                             <li class="nav-item">
-                                <a href="/faltas" class="nav-link align-middle px-0">
+                                <a href="{{route('faltas.registros')}}" class="nav-link align-middle px-0">
                                     <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Inasistencia</span>
                                 </a>
                             </li>

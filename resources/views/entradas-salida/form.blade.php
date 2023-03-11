@@ -1,17 +1,3 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
-        
-        
-
-    </div>
-
-</div>
-
-
-
-
-
-
 
 <div class="d-flex justify-content-center mb-4 mt-4">
     <div class="card w-75">

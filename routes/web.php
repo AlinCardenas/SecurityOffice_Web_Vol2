@@ -60,7 +60,7 @@ Route::get('/entradas-salidas/create', [EntradasSalidaController::class, 'create
 Route::post('/entradas-salidas/area', [EntradasSalidaController::class, 'store'])->name('entradas.store');
 Route::post('/entradas-salidas/{id}', [EntradasSalidaController::class, 'show'])->name('entradas.show');
 Route::get('/entradas-salidas/edit/{id}', [EntradasSalidaController::class, 'edit'])->name('entradas.edit');
-Route::put('/entradas-salidas/{area}', [EntradasSalidaController::class, 'update'])->name('entradas.update');
+Route::put('/entradas-salidas/{id}', [EntradasSalidaController::class, 'update'])->name('entradas.update');
 Route::delete('/entradas-salidas/{id}', [EntradasSalidaController::class, 'destroy'])->name('entradas.destroy');
 
 //Usuarios

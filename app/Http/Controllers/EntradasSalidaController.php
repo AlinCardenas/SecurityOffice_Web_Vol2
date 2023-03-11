@@ -99,14 +99,14 @@ class EntradasSalidaController extends Controller
      * @param  EntradasSalida $entradasSalida
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EntradasSalida $entradasSalida)
+    public function update(Request $request, EntradasSalida $registro)
     {
-        
-        request()->validate(EntradasSalida::$rules);
 
-        $entradasSalida->update($request->all());
+        $registro->entrada = $request->entrada;
+        $registro->fecha = $request->fecha;
+        $registro->usuario_id = $request->usuario_id;
 
-        // $id->save();
+        $registro->save();
 
         return redirect()->route('entradas.index')->with('success', 'EntradasSalida updated successfully');
     }

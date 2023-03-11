@@ -8,7 +8,7 @@
         <div class="col">
             <div class="d-flex justify-content-center">
                 <div id="container" class="w-100 mx-5">
-    
+
                 </div>
             </div>
         </div>
@@ -20,54 +20,76 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
 <script>
-console.log(<?php $entradas ?>)
-// Data retrieved from https://netmarketshare.com
 Highcharts.chart('container', {
     chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    }, 
-    title: {
-        text: '',
-        align: 'left'
+        type: 'column'
     },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    title: {
+        align: 'left',
+        text: 'Comparación de registros de entradas y salidas'
+    },
+    subtitle: {
+        align: 'left',
+
     },
     accessibility: {
-        point: {
-            valueSuffix: '%'
+        announceNewData: {
+            enabled: true
         }
     },
+    xAxis: {
+        type: 'category'
+    },
+    yAxis: {
+        title: {
+            text: 'Total de registros'
+        }
+
+    },
+    legend: {
+        enabled: false
+    },
     plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
+        series: {
             dataLabels: {
                 enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                format: '<p style="font-size:16px; color:black;">Cantidad: {point.y}</p>',
+                
             }
         }
     },
-    series: [{
-        name: 'Registrado',
-        colorByPoint: true,
-        data: [{
-            name: 'Personal laborando',
-            y: <?= $entradas ?> ,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Personal que ha salido',
-            y: <?= $salidas ?> 
-        }]
-    }]
-});
 
+    tooltip: {
+        headerFormat: '<span style="font-size:16px">{series.name}</span><br>',
+        pointFormat: '<span style="color:{point.color}, font-size:18px">{point.name}</span>: <b>{point.y}</b><br/>',
+    },
+
+    series: [
+        {
+            name: 'Registros de entradas y salidas',
+            colorByPoint: true,
+            data: [
+                {
+                    name: '<p style="font-size:16px; color:black;">Entradas</p>',
+                    y: <?= $entradas ?>,
+                },
+                {
+                    name: '<p style="font-size:16px; color:black;">Salidas</p>',
+                    y: <?= $salidas ?>,
+                },
+            ]
+        }
+    ],
+    drilldown: {
+        breadcrumbs: {
+            position: {
+                align: 'right'
+            }
+        },
+
+    }
+});
 </script>
 @endsection
 

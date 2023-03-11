@@ -23,26 +23,71 @@
                         </a>
                     </div>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        @if (Auth::user()->puesto->rol=='usuario')
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/asistencia.png') }}" alt="" width="30" height="30">
                             </div>
-                            <li class="nav-item">
-                                <a href="/" class="nav-link align-middle px-0">
-                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Asistencia</span>
+                                <li class="nav-item">
+                                    <a href="{{route('userV.asistencia')}}" class="nav-link align-middle px-0">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Mis asistencias</span>
+                                    </a>
+                                </li>
+                        </div>    
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/ina.png') }}" alt="" width="30" height="30">
+                            </div>
+                                <li class="nav-item">
+                                    <a href="{{route('user.inasistencias')}}" class="nav-link align-middle px-0">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Mis inasistencias</span>
+                                    </a>
+                                </li>
+                        </div>    
+                        <li>
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="me-3">
+                                    <img src="{{asset('img/trofeo.png') }}" alt="" width="30" height="30">
+                                </div>
+                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                    <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Bonificaciones</span> 
                                 </a>
-                            </li>
+                            </div>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                <li>
+                                    <a href="{{route('user.bonos')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos disponibles</span></a>
+                                </li>
+                                <li>
+                                    <a href="{{route('user.mbonos')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Mis bonos</span></a>
+                                </li>
+                            </ul>
+                        </li>      
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')    
+                        <div class="d-flex flex-row align-items-center">
+                            <div class="me-3">
+                                <img src="{{asset('img/asistencia.png') }}" alt="" width="30" height="30">
+                            </div>
+                                <li class="nav-item">
+                                    <a href="/" class="nav-link align-middle px-0">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Asistencia</span>
+                                    </a>
+                                </li>
                         </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/falta.png') }}" alt="" width="30" height="30">
                             </div>
                             <li class="nav-item">
-                                <a href="/faltas" class="nav-link align-middle px-0">
+                                <a href="{{route('faltas.registros')}}" class="nav-link align-middle px-0">
                                     <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">Inasistencia</span>
                                 </a>
                             </li>
                         </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente') 
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/acceso.png') }}" alt="" width="30" height="30">
@@ -53,6 +98,8 @@
                                 </a>
                             </li>
                         </div>
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador')
                         <div class="d-flex flex-row align-items-center">
                             <div class="me-3">
                                 <img src="{{asset('img/usuarios.png') }}" alt="" width="30" height="30">
@@ -63,7 +110,8 @@
                                 </a>
                             </li>
                         </div>
-
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador')
                         <li>
                             <div class="d-flex flex-row align-items-center">
                                 <div class="me-3">
@@ -75,40 +123,57 @@
                             </div>
                             <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                 <li>
-                                    <a href="{{route('entradasSalidas')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
-                                </li>
-                                <li>
                                     <a href="{{route('voltaje')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Voltaje</span></a>
                                 </li>
                                 <li>
                                     <a href="{{route('temperatura')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Temperatura</span></a>
                                 </li>
                             </ul>
-                        </li> 
-
+                        </li>                             
+                        @endif
+                        @if (Auth::user()->puesto->rol=='administrador' || Auth::user()->puesto->rol=='gerente')
                             <li>
-                                    <div class="d-flex flex-row align-items-center">
-                                        <div class="me-3">
-                                            <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
-                                        </div>
-                                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                            <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">CRUD</span> 
-                                        </a>
+                                <div class="d-flex flex-row align-items-center">
+                                    <div class="me-3">
+                                        <img src="{{asset('img/crud.png') }}" alt="" width="30" height="30">
                                     </div>
-                                    
+                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                        <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text">CRUD</span> 
+                                    </a>
+                                </div>    
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                                    <li>
+                                        <a href="{{route('users.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Usuarios</span></a>
+                                    </li>
+                                    @if (Auth::user()->puesto->rol=='administrador')
+                                    <li>
+                                        <a href="{{route('areas.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Areas</span></a>
+                                    </li>
+                                    @endif
                                     <li>
                                         <a href="{{route('bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Bonos</span></a>
                                     </li>
+                                    @if (Auth::user()->puesto->rol=='administrador')
+                                    <li>
+                                        <a href="{{route('entradas.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Entradas y salidas</span></a>
+                                    </li>
+                                    @endif
+                                    @if (Auth::user()->puesto->rol=='administrador')
                                     <li>
                                         <a href="{{route('puestos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Puestos</span></a>
                                     </li>
+                                    @endif
                                     <li>
-                                        <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline">Turnos</span></a>
+                                        <a href="{{route('tipos-bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Tipos de bonos</span></a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Turnos</span></a>
+                                    </li>
+                                    
+
                                 </ul>
                             </li>
-
+                        @endif
                         {{-- AQUI --}}
                     </ul>
                     <hr>
@@ -122,6 +187,7 @@
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                             <li><a class="dropdown-item" href="#">{{ Auth::user()->nombre }}</a></li>
                             <li><a class="dropdown-item" href="#">{{ Auth::user()->puesto->nombre }}</a></li>
+                            <li><a class="dropdown-item" href="{{route('edit.profile', Auth::user()->id)}}">Editar perfil</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

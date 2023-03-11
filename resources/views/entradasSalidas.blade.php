@@ -6,8 +6,10 @@
     <h1>Registros de entradas y salidas</h1>
     <div class="row">
         <div class="col">
-            <div id="container">
-
+            <div class="d-flex justify-content-center">
+                <div id="container" class="w-100 mx-5">
+    
+                </div>
             </div>
         </div>
     </div>
@@ -30,7 +32,7 @@ Highcharts.chart('container', {
         type: 'pie'
     }, 
     title: {
-        text: 'Relacion de registros de entradas y salidas de personal',
+        text: '',
         align: 'left'
     },
     tooltip: {

@@ -18,6 +18,7 @@ class EntradasSalidas extends Migration
             $table->bigIncrements('id');
             $table->time('entrada');
             $table->time('salida')->nullable();
+            $table->date('fecha');
             $table->bigInteger('usuario_id')->unsigned();
             $table->bigInteger('bono_id')->unsigned()->nullable();
             $table->timestamps();

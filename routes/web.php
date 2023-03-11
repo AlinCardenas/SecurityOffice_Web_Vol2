@@ -2,20 +2,24 @@
 
 use App\Http\Controllers\AccesosController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AsisInasisController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BonoController;
 use App\Http\Controllers\entradasSalidasController;
 use App\Http\Controllers\faltasController;
 use App\Http\Controllers\BonosController;
+use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\EntradasSalidaController;
 use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\InasistenciaController;
-use App\Http\Controllers\listaUsuariosController;
+use App\Http\Controllers\listaUsuariosController; 
 use App\Http\Controllers\MonitoreoController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\TiposBonoController;
 use App\Http\Controllers\TurnoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,20 +33,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// Asistencias e inasistencias
 Route::middleware('auth')->group(function() {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('inicio');
-    
+    Route::get('/', [AsisInasisController::class, 'asistencias'])->name('inicio');
 });
-
 
 //Rutas solo views
 // Route::get('/listaUsuarios', listaUsuariosController::class);
 
+Route::get('/faltas-registros', [AsisInasisController::class, 'inasistencias'])->name('faltas.registros');
 Route::get('/monitoreo', MonitoreoController::class);
-Route::get('/faltas', InasistenciaController::class);
 Route::get('/entradasSalidas', AccesosController::class);
 
 // AREAS
@@ -53,6 +53,15 @@ Route::post('/areas/{id}', [AreaController::class, 'show'])->name('areas.show');
 Route::get('/areas/edit/{id}', [AreaController::class, 'edit'])->name('areas.edit');
 Route::put('/areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('/areas/{id}', [AreaController::class, 'destroy'])->name('areas.destroy');
+
+// Entradas salidas
+Route::get('/entradas-salidas', [EntradasSalidaController::class, 'index'])->name('entradas.index');
+Route::get('/entradas-salidas/create', [EntradasSalidaController::class, 'create'])->name('entradas.create');
+Route::post('/entradas-salidas/area', [EntradasSalidaController::class, 'store'])->name('entradas.store');
+Route::post('/entradas-salidas/{id}', [EntradasSalidaController::class, 'show'])->name('entradas.show');
+Route::get('/entradas-salidas/edit/{id}', [EntradasSalidaController::class, 'edit'])->name('entradas.edit');
+Route::put('/entradas-salidas/{id}', [EntradasSalidaController::class, 'update'])->name('entradas.update');
+Route::delete('/entradas-salidas/{id}', [EntradasSalidaController::class, 'destroy'])->name('entradas.destroy');
 
 //Usuarios
 Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
@@ -96,3 +105,14 @@ Route::get('/faltas', [GraficosController::class, 'faltas'])->name('faltas');
 Route::get('/entradasSalidas', [GraficosController::class, 'entradasSalidas'])->name('entradasSalidas');
 Route::get('/temperatura', [GraficosController::class, 'temperatura'])->name('temperatura');
 Route::get('/voltaje', [GraficosController::class, 'voltaje'])->name('voltaje');
+
+// Rutas de vista usuario
+Route::get('/usuario/asistencias', [UserViewController::class, 'asistencias'])->name('userV.asistencia');
+Route::get('/usuario/inasistencias', [UserViewController::class, 'inasistencias'])->name('user.inasistencias');
+Route::get('/usuario/mbonos', [UserViewController::class, 'mbonos'])->name('user.mbonos');
+Route::get('/usuario/bonos', [UserViewController::class, 'bonos'])->name('user.bonos');
+
+// Pertinente al perfil
+Route::get('/usuario/profile/{id}', [EditProfileController::class, 'index'])->name('edit.profile'); 
+Route::put('/usuarios/profile/{user}', [EditProfileController::class, 'update'])->name('editusers.update');
+

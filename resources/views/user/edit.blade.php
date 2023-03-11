@@ -8,7 +8,7 @@
         <div class="col-md-12">
             @includeif('partials.errors')
             <div class="card-body">
-                <form method="POST" action="{{ route('users.update', $user) }}" role="form"
+                <form method="POST" action="{{ route('editusers.update', $user) }}" role="form"
                     enctype="multipart/form-data">
                     @csrf
                     @method('put')

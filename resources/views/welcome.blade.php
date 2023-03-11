@@ -21,6 +21,7 @@
                                             <th>Entrada</th>
                                             <th>Salida</th>
                                             <th>Usuario</th>                                            
+                                            <th>Foto del usuario</th>                                            
                                         </thead>
                                         <tbody>
                                             @foreach ($registros as $item)
@@ -28,6 +29,7 @@
                                                 <td>{{$item->entrada}}</td> 
                                                 <td>{{$item->salida}}</td> 
                                                 <td>{{$item->user->nombre}} {{$item->user->appA}}</td> 
+                                                <td>{{$item->user->foto}}</td> 
                                             </tr>
                                             @endforeach
                                         </tbody>

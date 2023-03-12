@@ -5,16 +5,10 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AsisInasisController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BonoController;
-use App\Http\Controllers\entradasSalidasController;
-use App\Http\Controllers\faltasController;
-use App\Http\Controllers\BonosController;
 use App\Http\Controllers\EditProfileController;
 use App\Http\Controllers\EntradasSalidaController;
 use App\Http\Controllers\GraficosController;
-use App\Http\Controllers\InasistenciaController;
-use App\Http\Controllers\listaUsuariosController; 
 use App\Http\Controllers\MonitoreoController;
-use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\PuestoController;
 use App\Http\Controllers\TiposBonoController;
 use App\Http\Controllers\TurnoController;
@@ -81,7 +75,7 @@ Route::get('/tipos-bonos/create', [TiposBonoController::class, 'create'])->name(
 Route::post('/tipos-bonos/tp', [TiposBonoController::class, 'store'])->name('tipos-bonos.store');
 Route::post('/tipos-bonos/{id}', [TiposBonoController::class, 'show'])->name('tipos-bonos.show');
 Route::get('/tipos-bonos/edit/{id}', [TiposBonoController::class, 'edit'])->name('tipos-bonos.edit');
-Route::put('/tipos-bonos/{tipos-bono}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
+Route::put('/tipos-bonos/{id}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
 Route::delete('/tipos-bonos/{id}', [TiposBonoController::class, 'destroy'])->name('tipos-bonos.destroy');
 
 // Enlaces a secciones de menu

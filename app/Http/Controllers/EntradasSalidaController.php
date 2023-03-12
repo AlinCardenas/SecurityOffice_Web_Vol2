@@ -86,10 +86,10 @@ class EntradasSalidaController extends Controller
      */
     public function edit($id)
     {
-        $entradasSalida = EntradasSalida::find($id);
+        $id = EntradasSalida::find($id);
         $registro = User::pluck('nombre', 'id');
         $registrob = Bono::pluck('cantidad', 'id');
-        return view('entradas-salida.edit', compact('entradasSalida', 'registro', 'registrob'));
+        return view('entradas-salida.edit', compact('id', 'registro', 'registrob'));
     }
 
     /**
@@ -99,14 +99,18 @@ class EntradasSalidaController extends Controller
      * @param  EntradasSalida $entradasSalida
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EntradasSalida $registro)
+    public function update(Request $request, EntradasSalida $id)
     {
 
-        $registro->entrada = $request->entrada;
-        $registro->fecha = $request->fecha;
-        $registro->usuario_id = $request->usuario_id;
+        $id->entrada = $request->entrada;
+        $id->salida = $request->salida;
+        $id->fecha = $request->fecha;
+        $id->usuario_id = $request->usuario_id;
+        $id->bono_id = $request->bono_id;
 
-        $registro->save();
+        $id->save();
+        // dump($request);
+        // dump($entradasSalida);
 
         return redirect()->route('entradas.index')->with('success', 'EntradasSalida updated successfully');
     }

@@ -20,10 +20,11 @@ class AsisInasisController extends Controller
 
     public function inasistencias(){
         $hoy = Carbon::today();
-        $registros = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas');})->get();
-        $cantidad = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas');})->count();
+        // $usuarios = EntradasSalida::select('usuario_id')->whereDate('fecha', '=', $hoy)->get();
 
-        // dump($registros);
+        $registros = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas')->whereDate('fecha', '=', Carbon::today());})->get();
+        $cantidad = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas')->whereDate('fecha', '=', Carbon::today());})->count();
+
         return view('faltas', compact('registros', 'cantidad'));
     }
     

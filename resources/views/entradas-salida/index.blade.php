@@ -23,8 +23,7 @@
                                             <tr>
                                                 <th>Entrada</th>
                                                 <th>Salida</th>
-                                                <th>Usuario Id</th>
-                                                <th>Bono</th>        
+                                                <th>Usuario</th>
                                                 <th>Editar</th>        
                                                 <th>Borrar</th>        
                                             </tr>
@@ -35,7 +34,6 @@
                                                     <td>{{ $entradasSalida->entrada }}</td>
                                                     <td>{{ $entradasSalida->salida }}</td>
                                                     <td>{{ $entradasSalida->user->nombre }}</td>
-                                                    <td>{{ $entradasSalida->bono->tiposBono->tipo }}</td>
                                                     <td>
                                                         <a class="btn btn-sm btn-primary" href="{{ route('entradas.edit',$entradasSalida->id) }}"><i class="fa fa-fw fa-edit"></i>Editar</a>
                                                     </td>

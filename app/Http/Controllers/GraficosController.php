@@ -98,13 +98,13 @@ class GraficosController extends Controller
     public function entradasSalidas(){
         $hoy = Carbon::today();
         $entradas = EntradasSalida::select(EntradasSalida::raw('count(entrada) as count'))->whereDate('fecha', '=', $hoy)->get();
-        $salidas = EntradasSalida::select(EntradasSalida  ::raw('count(salida)as count'))->whereDate('fecha', '=', $hoy)->get();
+        $salidas = EntradasSalida::select(EntradasSalida::raw('count(salida)as count'))->whereDate('fecha', '=', $hoy)->get();
         $entradashoy=0;
         $salidashoy=0;
         foreach ($entradas as $item) {
             $entradashoy = $item['count'];
         }
-        foreach ($salidas as $item) {
+        foreach ($salidas as $item) { 
             $salidashoy = $item['count'];
         }
         // dump($salidashoy);

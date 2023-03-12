@@ -75,7 +75,7 @@ Route::get('/tipos-bonos/create', [TiposBonoController::class, 'create'])->name(
 Route::post('/tipos-bonos/tp', [TiposBonoController::class, 'store'])->name('tipos-bonos.store');
 Route::post('/tipos-bonos/{id}', [TiposBonoController::class, 'show'])->name('tipos-bonos.show');
 Route::get('/tipos-bonos/edit/{id}', [TiposBonoController::class, 'edit'])->name('tipos-bonos.edit');
-Route::put('/tipos-bonos/{tipos-bono}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
+Route::put('/tipos-bonos/{id}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
 Route::delete('/tipos-bonos/{id}', [TiposBonoController::class, 'destroy'])->name('tipos-bonos.destroy');
 
 // Enlaces a secciones de menu

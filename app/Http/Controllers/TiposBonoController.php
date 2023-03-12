@@ -84,11 +84,11 @@ class TiposBonoController extends Controller
      * @param  TiposBono $tiposBono
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TiposBono $tiposBono)
+    public function update(Request $request, TiposBono $id)
     {
         request()->validate(TiposBono::$rules);
 
-        $tiposBono->update($request->all());
+        $id->update($request->all());
 
         return redirect()->route('tipos-bonos.index')
             ->with('success', 'TiposBono updated successfully');

@@ -43,7 +43,7 @@ class AsisInasisController extends Controller
         if($noviembre>0){ array_push($datos, $noviembre); }
         if($diciembre>0){ array_push($datos, $diciembre); }
 
-        return $datos;
+        return $datos; 
     }
 
     public function asistencias(){

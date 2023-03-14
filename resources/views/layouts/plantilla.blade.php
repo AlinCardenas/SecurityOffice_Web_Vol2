@@ -29,7 +29,7 @@
                                     <img src="{{asset('img/asistencia.png') }}" alt="" width="30" height="30">
                                 </div>
                                     <li class="nav-item">
-                                        <a href="{{route('userV.asistencia')}}" class="nav-link align-middle px-0">
+                                        <a href="{{route('inicio')}}" class="nav-link align-middle px-0">
                                             <i class=""></i> <span class="ms-1 d-none d-sm-inline text-black fs-5 text ">Mis asistencias</span>
                                         </a>
                                     </li>

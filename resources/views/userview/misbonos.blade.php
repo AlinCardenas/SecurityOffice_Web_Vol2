@@ -31,6 +31,7 @@
         }
     </style>
     <h1>Mis bonos obtenidos</h1>
+    {{-- ? --}}
     <div class="row row-cols-1 row-cols-md-2 g-4 mx-5">
         @foreach ($registros as $item)
         <div class="col">

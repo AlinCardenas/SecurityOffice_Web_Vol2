@@ -62,7 +62,7 @@ class AsisInasisController extends Controller
         
         $hoy = Carbon::today();
         // $usuarios = EntradasSalida::select('usuario_id')->whereDate('fecha', '=', $hoy)->get();
-
+ 
         $registros = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas')->whereDate('fecha', '=', Carbon::today());})->get();
         $cantidad = User::select('*')->whereNotIn('id',function($query){$query->select('usuario_id')->from('entradas_salidas')->whereDate('fecha', '=', Carbon::today());})->count();
 

@@ -13,7 +13,7 @@ class GraficosController extends Controller
     public function welcome(){
         // ? Trae todos las fechas de forma unica
         // $registros = Attendance::select('fecha')->groupBy('fecha')->orderBy('fecha')->get();
-                $registros = EntradasSalida::select('fecha', EntradasSalida::raw('count(fecha) as count'))->groupBy('fecha')->orderByDesc('fecha')->limit(7)->get();
+        $registros = EntradasSalida::select('fecha', EntradasSalida::raw('count(fecha) as count'))->groupBy('fecha')->orderByDesc('fecha')->limit(7)->get();
 
         $puntos = [];
         foreach($registros as $registro){

@@ -4,4 +4,6 @@
     
 @section('content')
     <h1>Bonos disponibles</h1>
+    {{-- ? Aqui --}}
+    
 @endsection

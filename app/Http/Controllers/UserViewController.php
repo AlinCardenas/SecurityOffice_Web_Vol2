@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bono;
 use App\Models\EntradasSalida;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ class UserViewController extends Controller
     }
 
     public function bonos(){
-        return view('userview.bonos');
+        $registros = Bono::all();
+        return view('userview.bonos', compact('registros'));
     }
 }

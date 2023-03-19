@@ -23,6 +23,7 @@ class Area extends Model
     static $rules = [
 		'nombre' => 'required',
 		'estatus' => 'required',
+		'sucursal_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -32,7 +33,7 @@ class Area extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','estatus'];
+    protected $fillable = ['nombre','estatus', 'sucursal_id'];
 
 
     /**
@@ -42,6 +43,9 @@ class Area extends Model
     {
         return $this->hasMany('App\Models\Puesto', 'area_id', 'id');
     }
-    
+    public function sucursal()
+    {
+        return $this->hasOne('App\Models\Sucursale', 'id', 'sucursal_id');
+    }
 
 }

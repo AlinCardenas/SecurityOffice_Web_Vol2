@@ -26,10 +26,14 @@
                                 <label for="nombre" class="mt-4 form-label">Estatus: </label>
                                 <select class="form-select" aria-label="Default select example" name="estatus">
                                     <option value="" >Selecciona un estatus para el area</option>
-                                    <option <?php if(old('estatus', $area->estatus)==1){echo("selected");} ?> value="1">Activo</option>
-                                    <option <?php if(old('estatus', $area->estatus)==0){echo("selected");} ?>  value="0">Inactivo</option>
-                                </select> 
-                                {{--  --}}
+                                    <option <?php if(old('estatus', $area->estatus)=='activo'){echo("selected");} ?> value="1">Activo</option>
+                                    <option <?php if(old('estatus', $area->estatus)=='inactivo'){echo("selected");} ?>  value="2">Inactivo</option>
+                                </select> <br>
+                                <div class="form-group mb-4">
+                                    {{ Form::label('Sucursal') }}
+                                    {{ Form::select('sucursal_id', $registro, $area->sucursal_id, ['class' => 'form-control' . ($errors->has('sucursal_id') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona la sucursal']) }}
+                                    {!! $errors->first('sucursal_id', '<div class="invalid-feedback">:message</div>') !!}
+                                </div> 
                             </div>
                             <div class="d-flex justify-content-center mt-4 mb-4">
                                 <button type="submit" class="btn btn-primary">Enviar</button>

@@ -16,7 +16,7 @@
                             <div class="card-header">
                                 <h1 class="card-title">Actualizar puesto</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body"> 
                                 <label for="basic-nombre" class="form-label">Nombre: </label>
                                 <div class="input-group mb-3">
                                   <input type="text" class="form-control" name="nombre" value="{{$puesto->nombre}}" id="nombre" aria-describedby="basic-addon3" placeholder="Ingresa el nombre del puesto:" required>

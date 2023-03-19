@@ -162,9 +162,6 @@
                                     </li>
                                     @endif
                                     <li>
-                                        <a href="{{route('tipos-bonos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Tipos de bonos</span></a>
-                                    </li>
-                                    <li>
                                         <a href="{{route('turnos.index')}}" class="nav-link px-0 text-black fs-6 text"> <span class="d-none d-sm-inline ">Turnos</span></a>
                                     </li>
                                     

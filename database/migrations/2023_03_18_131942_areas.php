@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TiposBonos extends Migration
+class Areas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class TiposBonos extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_bonos', function (Blueprint $table) {
+        Schema::create('areas', function (Blueprint $table) {
             $table->engine='InnoDB';
             $table->bigIncrements('id');
-            $table->string('tipo');
+            $table->string('nombre');
+            $table->enum('estatus', ['activo', 'inactivo']);
+            $table->bigInteger('sucursal_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('sucursal_id')->references('id')->on('sucursales')->onDelete('cascade');
         });
     }
 

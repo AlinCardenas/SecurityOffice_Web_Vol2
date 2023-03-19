@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Sucursale;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,8 @@ class AreaController extends Controller
     public function create()
     {
         $area = new Area();
-        return view('area.create', compact('area'));
+        $registro = Sucursale::pluck('nombre', 'id');
+        return view('area.create', compact('area', 'registro'));
     }
 
     /**
@@ -73,8 +75,8 @@ class AreaController extends Controller
     public function edit($id)
     {
         $area = Area::find($id);
-
-        return view('area.edit', compact('area'));
+        $registro = Sucursale::pluck('nombre', 'id');
+        return view('area.edit', compact('area', 'registro'));
     }
 
     /**

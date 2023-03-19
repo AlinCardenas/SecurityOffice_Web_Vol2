@@ -21,6 +21,7 @@
                                     <table class="table table-striped table-hover">
                                         <thead class="thead">
                                             <tr>
+                                                <th>Nombre</th>
                                                 <th>Cantidad</th>
                                                 <th>Descripcion</th>
                                                 <th>Tipo de bono</th>
@@ -32,9 +33,10 @@
                                         <tbody>
                                             @foreach ($bonos as $bono)
                                             <tr>
+                                                <td>{{ $bono->nombre }}</td>
                                                 <td>{{ $bono->cantidad }}</td>
                                                 <td>{{ $bono->descripcion }}</td>
-                                                <td>{{ $bono->tiposBono->tipo }}</td>
+                                                <td>{{ $bono->tipo }}</td>
 
                                                 <td>
                                                     <a class="btn btn-sm btn-primary"

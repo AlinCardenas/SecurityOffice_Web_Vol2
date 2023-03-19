@@ -24,6 +24,7 @@
                                             <tr>
                                                 <th>Nombre</th>
                                                 <th>Estatus</th>
+                                                <th>Sucursal</th>
                                                 <th>Editar</th>
                                                 <th>Borrar</th>
                                                 </tr>
@@ -33,6 +34,7 @@
                                                 <tr>                                                    
                                                     <td>{{ $area->nombre }}</td>
                                                     <td>{{ $area->estatus }}</td>
+                                                    <td>{{ $area->sucursal->nombre }}</td>
         
                                                     <td>
                                                         <a class="btn btn-sm btn-primary"

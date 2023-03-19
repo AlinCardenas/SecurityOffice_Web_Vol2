@@ -23,9 +23,10 @@ class Bono extends Model
 {
     
     static $rules = [
+        'nombre' => 'required',
 		'cantidad' => 'required',
 		'descripcion' => 'required',
-		'tipoBonos_id' => 'required',
+		'tipo' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,7 +36,7 @@ class Bono extends Model
      *
      * @var array
      */
-    protected $fillable = ['cantidad','descripcion','tipoBonos_id'];
+    protected $fillable = ['nombre', 'cantidad','descripcion','tipo'];
 
 
     /**
@@ -46,13 +47,4 @@ class Bono extends Model
         return $this->hasMany('App\Models\EntradasSalida', 'bono_id', 'id');
     }
     
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function tiposBono()
-    {
-        return $this->hasOne('App\Models\TiposBono', 'id', 'tipoBonos_id');
-    }
-    
-
 }

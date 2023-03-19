@@ -33,8 +33,7 @@ class BonoController extends Controller
     public function create()
     {
         $bono = new Bono();
-        $registro = TiposBono::pluck('tipo', 'id');
-        return view('bono.create', compact('bono', 'registro'));
+        return view('bono.create', compact('bono'));
     }
 
     /**
@@ -75,8 +74,7 @@ class BonoController extends Controller
     public function edit($id)
     {
         $bono = Bono::find($id);
-        $registro = TiposBono::pluck('tipo', 'id');
-        return view('bono.edit', compact('bono', 'registro'));
+        return view('bono.edit', compact('bono'));
     }
 
     /**

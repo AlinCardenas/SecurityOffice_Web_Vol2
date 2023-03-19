@@ -111,16 +111,32 @@
         </style>
         <h1>Mis asistencias</h1>
         <figure class="highcharts-figure">
-            <div id="container">
-
+            <div id="container">                
             </div>
         </figure>
 
-        <div>
-            {{-- @dump($valores) --}}
-            {{-- ? Aqui pondras la tabla tu xfas --}}
+        <div class="d-flex justify-content-center">
+            {{-- @dump($registrosAsis) --}}
+            <table class="table table-dark table-striped w-75">
+                <thead>
+                    <tr>
+                      <th scope="col">Hora de entrada</th>
+                      <th scope="col">Hora de salida</th>
+                      <th scope="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($registrosAsis as $re)
+                    <tr>
+                        <td>{{$re->entrada}}</td>
+                        <td>{{$re->salida}}</td>
+                        <td>{{$re->fecha}}</td>
+                      </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-
+        
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>

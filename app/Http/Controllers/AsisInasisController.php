@@ -51,11 +51,14 @@ class AsisInasisController extends Controller
         $valores = $this->getMonths();
         $valores = json_encode($valores);
 
+        $my_id = Auth::user()->id;
+
         $hoy = Carbon::today();
         $registros = EntradasSalida::select('entrada', 'salida', 'usuario_id')->whereDate('fecha', '=', $hoy)->whereNotNull('salida')->get();
         $cantidad = EntradasSalida::select('entrada', 'salida', 'usuario_id')->whereDate('fecha', '=', $hoy)->whereNotNull('salida')->count();
+        $registrosAsis = EntradasSalida::select('*')->where('usuario_id', $my_id)->get();
         // dump($cantidad);
-        return view('welcome', compact('registros', 'cantidad', 'valores'));
+        return view('welcome', compact('registros', 'cantidad', 'valores' , 'registrosAsis'));
     }
 
     public function inasistencias(){

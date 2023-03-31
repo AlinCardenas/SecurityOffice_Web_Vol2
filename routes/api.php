@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+//? API PARA LOGIN
 Route::get('/getusers', [SuperApiController::class, 'login']);

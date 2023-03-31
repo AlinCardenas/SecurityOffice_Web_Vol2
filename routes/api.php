@@ -22,13 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 //? API PARA LOGIN
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', 'SuperApiController@login');
-    Route::post('signup', 'SuperApiController@signup');
+    Route::post('login', [SuperApiController::class, 'login']);
+    Route::post('signup', [SuperApiController::class, 'signup']);
     
     // Rutas que requieren que el usuario tenga un token válido
     Route::group(['middleware' => 'auth:api'], function() {
-        Route::get('logout', 'SuperApiController@logout');
-        Route::get('user', 'SuperApiController@user');
+        Route::get('logout', [SuperApiController::class, 'logout']);
+        Route::get('user', [SuperApiController::class, 'user']);
         // Rutas de la API.
         //******************* */
     });

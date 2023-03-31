@@ -20,4 +20,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //? API PARA LOGIN
-Route::get('/getusers', [SuperApiController::class, 'login']);
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+    
+    // Rutas que requieren que el usuario tenga un token válido
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+        // Rutas de la API.
+        //******************* */
+    });
+});

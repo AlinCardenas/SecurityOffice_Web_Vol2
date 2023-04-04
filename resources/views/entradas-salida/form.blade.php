@@ -21,7 +21,7 @@
                 </div><br>
                 <div class="form-group">
                     {{ Form::label('bono') }}
-                    {{ Form::select('bono_id', $registrob, $entradasSalida->bono_id, ['class' => 'form-control' . ($errors->has('bono_id') ? ' is-invalid' : ''), 'placeholder' => 'Bono Id']) }}
+                    {{ Form::select('bono_id', $registrob, $entradasSalida->bono_id, ['class' => 'form-control' . ($errors->has('bono_id') ? ' is-invalid' : ''), 'placeholder' => 'Bono']) }}
                     {!! $errors->first('bono_id', '<div class="invalid-feedback">:message</div>') !!}
                 </div><br>
                 <div class="d-flex justify-content-center mt-4">

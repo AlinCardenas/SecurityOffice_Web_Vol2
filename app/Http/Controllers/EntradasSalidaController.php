@@ -36,7 +36,7 @@ class EntradasSalidaController extends Controller
     {
         $entradasSalida = new EntradasSalida(); 
         $registro = User::pluck('nombre', 'id');
-        $registrob = Bono::pluck('cantidad', 'id');
+        $registrob = Bono::pluck('nombre', 'id');
         return view('entradas-salida.create', compact('entradasSalida', 'registro', 'registrob'));
     }
 
@@ -88,7 +88,7 @@ class EntradasSalidaController extends Controller
     {
         $id = EntradasSalida::find($id);
         $registro = User::pluck('nombre', 'id');
-        $registrob = Bono::pluck('cantidad', 'id');
+        $registrob = Bono::pluck('nombre', 'id');
         return view('entradas-salida.edit', compact('id', 'registro', 'registrob'));
     }
 

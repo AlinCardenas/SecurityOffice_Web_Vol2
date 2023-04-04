@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Bono;
 use App\Models\EntradasSalida;
+use App\Models\Iotsistema;
+use App\Models\Puesto;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -47,6 +49,34 @@ class ApiController extends Controller
     //* LISTADO DE BONOS DISPONIBLES
     public function bonos(){
         $registros = Bono::all();
+
+        return $registros;
+    }
+
+    //* Voltaje y temperatura
+    public function voltem(){
+        $registro = Iotsistema::all();
+
+        return $registro;
+    }
+
+    //* Usuarios
+    public function getUsers(){
+        $registros = User::select('*')->with('puesto')->get();
+
+        return $registros;
+    }
+
+    //* Puestos
+    public function getPuestos(){
+        $registros = Puesto::select('*')->with('area')->get();
+
+        return $registros;
+    }
+
+    //* Bonos
+    public function getBonos(){
+        $registros = Bono::select('*')->get();
 
         return $registros;
     }

@@ -50,3 +50,15 @@ Route::get('/empleadobono', [ApiController::class, 'empleadobono']);
 
 //? Listado de bonos
 Route::get('/bonos', [ApiController::class, 'bonos']);
+
+//? Voltaje y temperatura
+Route::get('/voltem', [ApiController::class, 'voltem']);
+
+//? Listado de usuarios
+Route::get('/getusers', [ApiController::class, 'getUsers']);
+
+//? Listado de puestos
+Route::get('/getpuestos', [ApiController::class, 'getPuestos']);
+
+//? Listado de bonos
+Route::get('/getbonos', [ApiController::class, 'getBonos']);

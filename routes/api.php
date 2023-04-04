@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\SuperApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,32 @@ Route::group(['prefix' => 'auth'], function () {
         //******************* */
     });
 });
+
+// API
+
+//? Empleados con asistencia hoy
+Route::get('/asistencias', [ApiController::class, 'asistencias']);
+
+//? Todos los registros de entradas y salidas de hoy
+Route::get('/registros', [ApiController::class,'registros']);
+
+//? Empleados con inasistencias hoy
+Route::get('/inasistencias', [ApiController::class, 'inasistencias']);
+
+//? Empleados con bono hoy
+Route::get('/empleadobono', [ApiController::class, 'empleadobono']);
+
+//? Listado de bonos
+Route::get('/bonos', [ApiController::class, 'bonos']);
+
+//? Voltaje y temperatura
+Route::get('/voltem', [ApiController::class, 'voltem']);
+
+//? Listado de usuarios
+Route::get('/getusers', [ApiController::class, 'getUsers']);
+
+//? Listado de puestos
+Route::get('/getpuestos', [ApiController::class, 'getPuestos']);
+
+//? Listado de bonos
+Route::get('/getbonos', [ApiController::class, 'getBonos']);

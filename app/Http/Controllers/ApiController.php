@@ -41,7 +41,7 @@ class ApiController extends Controller
     public function empleadobono(){
         $hoy = Carbon::today();
 
-        $registros = EntradasSalida::select('*')->whereDate('fecha', '=', $hoy)->whereNotNull('bono_id')->with('user')->with('bono')->get();
+        $registros = EntradasSalida::select('*')->whereDate('fecha', '=', $hoy)->whereNotNull('bono_id')->with('user.puesto')->with('bono')->get();
 
         return $registros;
     }

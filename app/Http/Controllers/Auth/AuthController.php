@@ -7,11 +7,10 @@ use App\Models\Puesto;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-
-
     public function register(){
         $user = new User();
         $registro = Puesto::pluck('nombre', 'id');
@@ -28,19 +27,30 @@ class AuthController extends Controller
             'email' => 'required'
         ]);
 
-        $registro = $request->all();
+        $usuario = new User();
 
-        if($imagen=$request->file('foto')){
-            $rutaGuardarImg = 'imgs/';
-            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImg, $imgRegistro);
-            $registro['foto'] = "$imgRegistro";
+        if($request->foto!=null){
+            $path = $request->foto->store('public/box');
+            $usuario->foto = $path;
         }
 
-        $gen_pass = bcrypt($request->password);
-        $registro['password'] = $gen_pass;
+        $gen_pass = $request->password;
+        $hashed = Hash::make($gen_pass, [
+            'rounds' => 15,
+        ]);
 
-        $user = User::create($registro);
+        $usuario->password = $hashed;
+
+        $usuario->nombre = $request->nombre;
+        $usuario->appA = $request->appA;
+        $usuario->appB = $request->appB;
+        $usuario->fechaN = $request->fechaN;
+        $usuario->genero = $request->genero;
+        $usuario->email = $request->email;
+        // $usuario->estatus = $request->estatus;
+        $usuario->puesto_id = $request->puesto_id;
+
+        $usuario->save();
 
         return redirect()->route('login')->with('success', 'Registro generado');
     }

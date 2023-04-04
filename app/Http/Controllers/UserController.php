@@ -48,29 +48,32 @@ class UserController extends Controller
     {
         request()->validate(User::$rules);
 
-        $registro = $request->all();
+        $usuario = new User();
+
+        if($request->foto!=null){
+            $path = $request->foto->store('public/box');
+            $usuario->foto = $path;
+        }
 
         $gen_pass = $request->password;
-
         $hashed = Hash::make($gen_pass, [
             'rounds' => 15,
         ]);
-        
-        
-        $registro['password'] = $hashed;
-        // dump($registro['password']);
-        
-        if($imagen=$request->file('foto')){
-            $rutaGuardarImg = 'imgs/';
-            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImg, $imgRegistro);
-            $registro['foto'] = "$imgRegistro";
-        }
 
-        $user = User::create($registro);
+        $usuario->password = $hashed;
 
-        return redirect()->route('users.index')
-            ->with('success', 'User created successfully.'); 
+        $usuario->nombre = $request->nombre;
+        $usuario->appA = $request->appA;
+        $usuario->appB = $request->appB;
+        $usuario->fechaN = $request->fechaN;
+        $usuario->genero = $request->genero;
+        $usuario->email = $request->email;
+        // $usuario->estatus = $request->estatus;
+        $usuario->puesto_id = $request->puesto_id;
+
+        $usuario->save();
+
+        return redirect()->route('users.index')->with('success', 'Usuario generado');
     }
 
     /**
@@ -108,21 +111,26 @@ class UserController extends Controller
      */ 
     public function update(Request $request, User $user)
     { 
+
         request()->validate(User::$rules);
 
-        $registro = $request->all();
-
-        if($imagen=$request->file('foto')){
-            $rutaGuardarImg = 'imgs/';
-            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImg, $imgRegistro);
-            $registro['foto'] = "$imgRegistro";
+        if($request->foto!=null){
+            $path = $request->foto->store('public/box');
+            $user->foto = $path;
         }
 
-        $user->update($registro);
+        $user->nombre = $request->nombre;
+        $user->appA = $request->appA;
+        $user->appB = $request->appB;
+        $user->fechaN = $request->fechaN;
+        $user->genero = $request->genero;
+        $user->email = $request->email;
+        $user->puesto_id = $request->puesto_id;
 
-        return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'Usuario generado');
+
     }
 
     /**

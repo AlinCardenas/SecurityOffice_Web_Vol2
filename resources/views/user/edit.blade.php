@@ -8,14 +8,14 @@
         <div class="col-md-12">
             @includeif('partials.errors')
             <div class="card-body">
-                <form method="POST" action="{{ route('editusers.update', $user) }}" role="form"
+                <form method="POST" action="{{ route('users.update', $user) }}" role="form"
                     enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="d-flex justify-content-center mb-4 mt-4">
                         <div class="card w-75">
                             <div class="card-header">
-                                <h1 class="card-title">Actualizar usuario</h1>
+                                <h1 class="card-title">Actualizar usuarioo0ooo</h1>
                             </div>
                             <div class="card-body">
                                 <label for="nombre" class="form-label">Ingresa el nombre: </label>

@@ -45,16 +45,12 @@
                                     <?php if(old('genero', $user->genero)=='Masculino') {echo("checked");} ?> />Masculino<br />
                             </div>
                         </div>
-                        {{--  --}}
-
-                        <div id="element">
+                        <div id="element" style="display:none;">
                             <div class="d-flex justify-content-center mt-4">
                                 <img id="imgSelect" alt="img"
-                                    class="w-25 h-25 border border-4 border-dark rounded-circle"
-                                    src="/imgs/{{$user->foto}}">
+                                    class="w-25 h-25 border border-4 border-dark rounded-circle">
                             </div>
                         </div>
-
                         <div class="d-flex justify-content-center mt-4">
                             <div class="dropzone ">
                                 <img src="{{asset('/img/subir.png')}}" width="150" height="150" class="upload-icon" />

@@ -175,8 +175,8 @@
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                             <img   class="">
-
-                            <img class="rounded-circle" src="/imgs/{{Auth::user()->foto}}" width="30" height="30" alt="Usuario">
+                            <p hidden>{{$cadena = str_replace('public/box/', '', Auth::user()->foto)}}</p> 
+                            <img class="rounded-circle" src="storage/box/{{$cadena}}" width="30" height="30" alt="Usuario">
                             <span class="d-none d-sm-inline mx-1 text-black">Usuario</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

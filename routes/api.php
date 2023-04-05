@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\BonosApiController;
+use App\Http\Controllers\PuestosApiController;
 use App\Http\Controllers\SuperApiController;
+use App\Http\Controllers\UserApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -63,3 +66,19 @@ Route::get('/getpuestos', [ApiController::class, 'getPuestos']);
 
 //? Listado de bonos
 Route::get('/getbonos', [ApiController::class, 'getBonos']);
+
+//?????????????????????????????????????????????????????????????????????????????
+//? CRUD USUARIO
+Route::post('/usuario', [UserApiController::class, 'store']);
+Route::put('/usuarios/{id}', [UserApiController::class, 'update']);
+Route::delete('/usuarios/{id}', [UserApiController::class, 'destroy']);
+
+//? CRUD BONOS
+Route::post('/bonos', [BonosApiController::class, 'store']);
+Route::put('/bonos/{id}', [BonosApiController::class, 'update']);
+Route::delete('/bonos/{id}', [BonosApiController::class, 'destroy']);
+
+//? CRUD PUESTOS
+Route::post('/puestos', [PuestosApiController::class, 'store']);
+Route::put('/puestos/{id}', [PuestosApiController::class, 'update']);
+Route::delete('/puestos/{id}', [PuestosApiController::class, 'destroy']);

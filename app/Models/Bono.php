@@ -24,7 +24,7 @@ class Bono extends Model
     
     static $rules = [
         'nombre' => 'required',
-		'cantidad' => 'required',
+		'salario' => 'required',
 		'descripcion' => 'required',
 		'tipo' => 'required',
     ];
@@ -36,7 +36,7 @@ class Bono extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'cantidad','descripcion','tipo'];
+    protected $fillable = ['nombre', 'salario','descripcion','tipo'];
 
 
     /**

@@ -24,7 +24,7 @@ class Bono extends Model
     
     static $rules = [
         'nombre' => 'required',
-		'salario' => 'required',
+		'cantidad' => 'required',
 		'descripcion' => 'required',
 		'tipo' => 'required',
     ];

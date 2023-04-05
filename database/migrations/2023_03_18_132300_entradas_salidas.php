@@ -19,7 +19,7 @@ class EntradasSalidas extends Migration
             $table->time('entrada')->nullable();
             $table->time('salida')->nullable();
             $table->date('fecha')->nullable();
-            $table->string('control');
+            $table->string('numcon');
             $table->bigInteger('usuario_id')->unsigned();
             $table->bigInteger('bono_id')->unsigned()->nullable();
             $table->timestamps();

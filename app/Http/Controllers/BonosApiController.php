@@ -11,7 +11,7 @@ class BonosApiController extends Controller
 
         $request->validate([
             'nombre' => 'required',
-            'salario' => 'required',
+            'cantidad' => 'required',
             'descripcion' => 'required',
             'tipo' => 'required',
         ]);

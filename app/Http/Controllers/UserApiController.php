@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserApiController extends Controller
 {
@@ -21,13 +22,19 @@ class UserApiController extends Controller
 
         $registros = new User();
 
+        $gen_pass = $request->password;
+        $hashed = Hash::make($gen_pass, [
+            'rounds' => 15,
+        ]);
+        
+        $registros->password = $hashed;
+
         $registros->nombre = $request->nombre;
         $registros->appA = $request->appA;
         $registros->appB = $request->appB;
         $registros->fechaN = $request->fechaN;
         $registros->genero = $request->genero;
         $registros->email = $request->email;
-        $registros->password = $request->password;
         $registros->puesto_id = $request->puesto_id;
         
         $registros->save();

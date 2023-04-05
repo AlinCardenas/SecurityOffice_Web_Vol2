@@ -42,7 +42,6 @@ class UserApiController extends Controller
         $registros->fechaN = $request->fechaN;
         $registros->genero = $request->genero;
         $registros->email = $request->email;
-        $registros->password = $request->password;
         $registros->puesto_id = $request->puesto_id;
 
         $registros->save();

@@ -25,26 +25,26 @@ class BonoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $bonos->perPage());
     }
 
-        //************************************************************** */
-        public function indexes(Request $request)
-        {
-            $coincidencia = $request->get('mensaje');
-    
-            $bonos = Bono::where('nombre', 'LIKE', $coincidencia.'%')->get();
-    
-            if ($bonos->isNotEmpty()) {
-                return view('buscar.bonos.veru', compact('bonos'));
-            }else{
-                return view('buscar.bonos.sin');
-            }
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
+
+        $bonos = Bono::where('nombre', 'LIKE', $coincidencia.'%')->get();
+
+        if ($bonos->isNotEmpty()) {
+            return view('buscar.bonos.veru', compact('bonos'));
+        }else{
+            return view('buscar.bonos.sin');
         }
-        public function normal(Request $request)
-        {
-            $bonos = Bono::paginate();
-    
-            return view('buscar.bonos.vern', compact('bonos'));
-        }
-        //************************************************************** */
+    }
+    public function normal(Request $request)
+    {
+        $bonos = Bono::paginate();
+
+        return view('buscar.bonos.vern', compact('bonos'));
+    }
+    //************************************************************** */
 
     /**
      * Show the form for creating a new resource.

@@ -79,7 +79,18 @@ Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('users.u
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 //Puestos
+Route::get('/puestos', [PuestoController::class, 'index'])->name('users.index');
+//? Buscar
+Route::get('/ver_puesto', [PuestoController::class, 'indexes'])->name('ver_puesto');
+Route::get('/ver_puesto_normal', [PuestoController::class, 'normal'])->name('ver_puesto_normal');
+//??????????????????????????????????????????????????????????????????????????????????????????
+Route::get('/puestos/create', [PuestoController::class, 'create'])->name('users.create');
+Route::post('/puestos/puesto', [PuestoController::class, 'store'])->name('users.store');
+Route::post('/puestos/{id}', [PuestoController::class, 'show'])->name('users.show');
+Route::get('/puestos/edit/{id}', [PuestoController::class, 'edit'])->name('users.edit');
 Route::put('/puestos/{puesto}', [PuestoController::class, 'update'])->name('puestos.update');
+Route::delete('/puestos/{id}', [PuestoController::class, 'destroy'])->name('users.destroy');
+
 
 // // Tipos de bonos
 // Route::get('/tipos-bonos', [TiposBonoController::class, 'index'])->name('tipos-bonos.index');

@@ -25,6 +25,27 @@ class PuestoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $puestos->perPage());
     }
 
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
+
+        $puestos = Puesto::where('nombre', 'LIKE', $coincidencia.'%')->get();
+
+        if ($puestos->isNotEmpty()) {
+            return view('buscar.puestos.veru', compact('puestos'));
+        }else{
+            return view('buscar.puestos.sin');
+        }
+    }
+    public function normal(Request $request)
+    {
+        $puestos = Puesto::paginate();
+
+        return view('buscar.puestos.vern', compact('puestos'));
+    }
+    //************************************************************** */
+
     /**
      * Show the form for creating a new resource.
      *

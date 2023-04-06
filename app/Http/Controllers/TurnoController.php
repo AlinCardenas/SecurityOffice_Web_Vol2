@@ -24,6 +24,27 @@ class TurnoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $turnos->perPage());
     }
 
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
+
+        $turnos = Turno::where('turno', 'LIKE', $coincidencia.'%')->get();
+
+        if ($turnos->isNotEmpty()) {
+            return view('buscar.turnos.veru', compact('turnos'));
+        }else{
+            return view('buscar.turnos.sin');
+        }
+    }
+    public function normal(Request $request)
+    {
+        $turnos = Turno::paginate();
+
+        return view('buscar.turnos.vern', compact('turnos'));
+    }
+    //************************************************************** */
+
     /**
      * Show the form for creating a new resource.
      *

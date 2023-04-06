@@ -27,6 +27,33 @@ class EntradasSalidaController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $entradasSalidas->perPage());
     }
 
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
+
+        $pre = User::where('nombre', 'LIKE', $coincidencia.'%')->get();
+        $my_id = 0;
+        foreach ($pre as $item) {
+            $my_id = $item['id'];
+        }
+        
+        $entradasSalidas = EntradasSalida::where('usuario_id', 'LIKE', $my_id.'%')->get();
+
+        if ($entradasSalidas->isNotEmpty()) {
+            return view('buscar.entradassalidas.veru', compact('entradasSalidas'));
+        }else{
+            return view('buscar.entradassalidas.sin');
+        }
+    }
+    public function normal(Request $request)
+    {
+        $entradasSalidas = EntradasSalida::paginate();
+
+        return view('buscar.entradassalidas.vern', compact('entradasSalidas'));
+    }
+    //************************************************************** */
+
     /**
      * Show the form for creating a new resource.
      *

@@ -24,7 +24,26 @@ class AreaController extends Controller
         return view('area.index', compact('areas'))
             ->with('i', (request()->input('page', 1) - 1) * $areas->perPage());
     }
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
 
+        $areas = Area::where('nombre', 'LIKE', $coincidencia.'%')->get();
+
+        if ($areas->isNotEmpty()) {
+            return view('buscar.areas.veru', compact('areas'));
+        }else{
+            return view('buscar.areas.sin');
+        }
+    }
+    public function normal(Request $request)
+    {
+        $areas = Area::paginate();
+
+        return view('buscar.areas.vern', compact('areas'));
+    }
+    //************************************************************** */
     /**
      * Show the form for creating a new resource.
      *

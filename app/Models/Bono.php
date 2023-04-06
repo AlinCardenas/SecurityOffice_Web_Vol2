@@ -36,7 +36,7 @@ class Bono extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'salario','descripcion','tipo'];
+    protected $fillable = ['nombre', 'cantidad','descripcion','tipo'];
 
 
     /**

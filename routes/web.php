@@ -114,6 +114,22 @@ Route::get('/bonos/edit/{id}', [BonoController::class, 'edit'])->name('bonos.edi
 Route::put('/bonos/{id}', [BonoController::class, 'update'])->name('bonos.update');
 Route::delete('/bonos/{id}', [BonoController::class, 'destroy'])->name('bonos.destroy');
 
+
+// Turnos
+Route::get('/turnos', [TurnoController::class, 'index'])->name('turnos.index');
+//? Buscar
+Route::get('/ver_turnos', [TurnoController::class, 'indexes'])->name('ver_turnos');
+Route::get('/ver_turnos_normal', [TurnoController::class, 'normal'])->name('ver_turnos_normal');
+//??????????????????????????????????????????????????????????????????????????????????????????
+Route::get('/turnos/create', [TurnoController::class, 'create'])->name('turnos.create');
+Route::post('/turnos/turno', [TurnoController::class, 'store'])->name('turnos.store');
+Route::post('/turnos/{id}', [TurnoController::class, 'show'])->name('turnos.show');
+Route::get('/turnos/edit/{id}', [TurnoController::class, 'edit'])->name('turnos.edit');
+Route::put('/turnos/{id}', [TurnoController::class, 'update'])->name('turnos.update');
+Route::delete('/turnos/{id}', [TurnoController::class, 'destroy'])->name('turnos.destroy');
+
+
+
 // Enlaces a secciones de menu
 Route::resource('/bonos', BonoController::class);
 Route::resource('/puestos', PuestoController::class);

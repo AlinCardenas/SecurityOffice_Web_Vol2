@@ -13,8 +13,16 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
-                            <div class="mb-3">
-                                <a class="btn text-white btn-create" href="{{route('users.create')}}" role="button">Agregar usuario</a>
+                            <div class="row mt-1 w-100 my-4">
+                                <div class="col">
+                                    <a class="btn text-white btn-create" href="{{route('users.create')}}" role="button">Agregar usuario</a>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Busca por nombre:</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ingreso" name="ingreso">
+                                      </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -34,36 +42,37 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($users as $user)
-                                            <p hidden>{{$cadena = str_replace('public/box/', '', $user->foto)}}</p> 
-                                            <tr class="align-middle">
-                                                <td >
-                                                        {{ $user->nombre }}
-                                                </td>
-                                                <td class="">{{ $user->appA }}</td>
-                                                <td class="">{{ $user->genero }}</td>
-                                                <td >
-                                                    <div class="d-flex justify-content-center">
-                                                        <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
-                                                    </div>    
-                                                <td >{{ $user->email }}</td>
-                                                <td >{{ $user->estatus }}</td>
-                                                <td >{{ $user->puesto->nombre }}</td>
+                                            @if (isset($user['nombre']))
+                                                <p hidden>
+                                                    {{$cadena = str_replace('public/box/', '', $user->foto)}}
+                                                </p> 
+                                                <tr class="align-middle">
+                                                    <td>{{ $user->nombre }}</td>
+                                                    <td class="">{{ $user->appA }}</td>
+                                                    <td class="">{{ $user->genero }}</td>
+                                                    <td >
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
+                                                        </div>    
+                                                    <td >{{ $user->email }}</td>
+                                                    <td >{{ $user->estatus }}</td>
+                                                    <td >{{ $user->puesto->nombre }}</td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-primary"
+                                                        href="{{ route('users.edit',$user->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i>Editar</a>
 
-                                                <td>
-                                                    <a class="btn btn-sm btn-primary"
-                                                    href="{{ route('users.edit',$user->id) }}"><i
-                                                        class="fa fa-fw fa-edit"></i>Editar</a>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                                                class="fa fa-fw fa-trash"></i>Borrar</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                                                    class="fa fa-fw fa-trash"></i>Borrar</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                             @endforeach
                                         </tbody>
                                     </table>

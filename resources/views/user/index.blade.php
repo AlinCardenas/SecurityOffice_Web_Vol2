@@ -21,7 +21,7 @@
                                     <div class="input-group">
                                         <span class="input-group-text" id="inputGroup-sizing-default">Busca por nombre:</span>
                                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ingreso" name="ingreso">
-                                      </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -40,7 +40,7 @@
                                                 <th>Borrar</th>
                                             </tr> 
                                         </thead>
-                                        <tbody>
+                                        <tbody id="loadsite">
                                             @foreach ($users as $user)
                                             @if (isset($user['nombre']))
                                                 <p hidden>
@@ -86,4 +86,22 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        $('#ingreso').on('keyup', function(){
+            let mensaje = document.getElementById("ingreso").value;
+            console.log(mensaje);
+            if(mensaje.length>=3){
+              $('#loadsite').load('ver_usuarios?mensaje=' + mensaje);
+            }
+        });
+        const input = document.getElementById('ingreso');
+        input.addEventListener('input', () => {
+          if (input.value.trim().length === 0 || input.value.trim().length === 1) {
+            console.log('El input está vacío');
+            $('#loadsite').load('ver_normal');
+          }
+        });
+    });
+</script>
 @endsection

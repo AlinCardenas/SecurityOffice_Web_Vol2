@@ -13,8 +13,16 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
-                            <div class="mb-3">
-                                <a class="btn btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
+                            <div class="row mt-1 w-100 my-4">
+                                <div class="col">
+                                    <a class="btn btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="inputGroup-sizing-default">Busca por nombre:</span>
+                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ingreso" name="ingreso">
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -30,30 +38,30 @@
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="loadsite">
                                             @foreach ($bonos as $bono)
-                                            <tr>
-                                                <td>{{ $bono->nombre }}</td>
-                                                <td>{{ $bono->cantidad }}</td>
-                                                <td>{{ $bono->descripcion }}</td>
-                                                <td>{{ $bono->tipo }}</td>
+                                            @if (isset($bono['nombre']))
+                                                <tr>
+                                                    <td>{{ $bono->nombre }}</td>
+                                                    <td>{{ $bono->cantidad }}</td>
+                                                    <td>{{ $bono->descripcion }}</td>
+                                                    <td>{{ $bono->tipo }}</td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-primary"
+                                                        href="{{ route('bonos.edit',$bono->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i>Editar</a>
 
-                                                <td>
-                                                    <a class="btn btn-sm btn-primary"
-                                                    href="{{ route('bonos.edit',$bono->id) }}"><i
-                                                        class="fa fa-fw fa-edit"></i>Editar</a>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <form action="{{ route('bonos.destroy',$bono->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm"><i
-                                                                class="fa fa-fw fa-trash"></i>Borrar</button>
-                                                    </form>
-                                                    
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{ route('bonos.destroy',$bono->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-danger btn-sm"><i
+                                                                    class="fa fa-fw fa-trash"></i>Borrar</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -65,4 +73,24 @@
                 </div>
             </div>
         </div>
-        @endsection
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#ingreso').on('keyup', function(){
+            let mensaje = document.getElementById("ingreso").value;
+            console.log(mensaje);
+            if(mensaje.length>=3){
+              $('#loadsite').load('ver_bonos?mensaje=' + mensaje);
+            }
+        });
+        const input = document.getElementById('ingreso');
+        input.addEventListener('input', () => {
+          if (input.value.trim().length === 0 || input.value.trim().length === 1) {
+            console.log('El input está vacío');
+            $('#loadsite').load('ver_bonos_normal');
+          }
+        });
+    });
+</script>
+@endsection

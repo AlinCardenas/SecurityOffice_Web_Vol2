@@ -77,14 +77,27 @@ Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users
 //Puestos
 Route::put('/puestos/{puesto}', [PuestoController::class, 'update'])->name('puestos.update');
 
-// Tipos de bonos
-Route::get('/tipos-bonos', [TiposBonoController::class, 'index'])->name('tipos-bonos.index');
-Route::get('/tipos-bonos/create', [TiposBonoController::class, 'create'])->name('tipos-bonos.create');
-Route::post('/tipos-bonos/tp', [TiposBonoController::class, 'store'])->name('tipos-bonos.store');
-Route::post('/tipos-bonos/{id}', [TiposBonoController::class, 'show'])->name('tipos-bonos.show');
-Route::get('/tipos-bonos/edit/{id}', [TiposBonoController::class, 'edit'])->name('tipos-bonos.edit');
-Route::put('/tipos-bonos/{id}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
-Route::delete('/tipos-bonos/{id}', [TiposBonoController::class, 'destroy'])->name('tipos-bonos.destroy');
+// // Tipos de bonos
+// Route::get('/tipos-bonos', [TiposBonoController::class, 'index'])->name('tipos-bonos.index');
+// Route::get('/tipos-bonos/create', [TiposBonoController::class, 'create'])->name('tipos-bonos.create');
+// Route::post('/tipos-bonos/tp', [TiposBonoController::class, 'store'])->name('tipos-bonos.store');
+// Route::post('/tipos-bonos/{id}', [TiposBonoController::class, 'show'])->name('tipos-bonos.show');
+// Route::get('/tipos-bonos/edit/{id}', [TiposBonoController::class, 'edit'])->name('tipos-bonos.edit');
+// Route::put('/tipos-bonos/{id}', [TiposBonoController::class, 'update'])->name('tipos-bonos.update');
+// Route::delete('/tipos-bonos/{id}', [TiposBonoController::class, 'destroy'])->name('tipos-bonos.destroy');
+
+// Bonos
+Route::get('/bonos', [BonoController::class, 'index'])->name('bonos.index');
+//? Buscar
+Route::get('/ver_bonos', [BonoController::class, 'indexes'])->name('ver_bonos');
+Route::get('/ver_bonos_normal', [BonoController::class, 'normal'])->name('ver_bonos_normal');
+//??????????????????????????????????????????????????????????????????????????????????????????
+Route::get('/bonos/create', [BonoController::class, 'create'])->name('bonos.create');
+Route::post('/bonos/bono', [BonoController::class, 'store'])->name('bonos.store');
+Route::post('/bonos/{id}', [BonoController::class, 'show'])->name('bonos.show');
+Route::get('/bonos/edit/{id}', [BonoController::class, 'edit'])->name('bonos.edit');
+Route::put('/bonos/{id}', [BonoController::class, 'update'])->name('bonos.update');
+Route::delete('/bonos/{id}', [BonoController::class, 'destroy'])->name('bonos.destroy');
 
 // Enlaces a secciones de menu
 Route::resource('/bonos', BonoController::class);

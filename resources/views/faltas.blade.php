@@ -23,6 +23,7 @@
                                         <th>Correo electronico</th>
                                         <th>Puesto</th>
                                         <th>foto</th>
+                                        <th>Notificacion</th>
                                     </thead>
                                     <tbody>
                                         <tbody>
@@ -32,6 +33,9 @@
                                                 <td>{{$item->email}}</td>
                                                 <td>{{$item->puesto->nombre}}</td>
                                                 <td>{{$item->foto}}</td>
+                                                <td>
+                                                    <a href="{{route('faltas.enviar', $item->id)}}" class="btn btn-dark">Notificar</a>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         

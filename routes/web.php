@@ -6,6 +6,7 @@ use App\Http\Controllers\AsisInasisController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BonoController;
 use App\Http\Controllers\EditProfileController;
+use App\Http\Controllers\EmailFaltaController;
 use App\Http\Controllers\EntradasSalidaController;
 use App\Http\Controllers\GraficosController;
 use App\Http\Controllers\MonitoreoController;
@@ -79,17 +80,17 @@ Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('users.u
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 //Puestos
-Route::get('/puestos', [PuestoController::class, 'index'])->name('users.index');
+Route::get('/puestos', [PuestoController::class, 'index'])->name('puestos.index');
 //? Buscar
 Route::get('/ver_puesto', [PuestoController::class, 'indexes'])->name('ver_puesto');
 Route::get('/ver_puesto_normal', [PuestoController::class, 'normal'])->name('ver_puesto_normal');
 //??????????????????????????????????????????????????????????????????????????????????????????
-Route::get('/puestos/create', [PuestoController::class, 'create'])->name('users.create');
-Route::post('/puestos/puesto', [PuestoController::class, 'store'])->name('users.store');
-Route::post('/puestos/{id}', [PuestoController::class, 'show'])->name('users.show');
-Route::get('/puestos/edit/{id}', [PuestoController::class, 'edit'])->name('users.edit');
+Route::get('/puestos/create', [PuestoController::class, 'create'])->name('puestos.create');
+Route::post('/puestos/puesto', [PuestoController::class, 'store'])->name('puestos.store');
+Route::post('/puestos/{id}', [PuestoController::class, 'show'])->name('puestos.show');
+Route::get('/puestos/edit/{id}', [PuestoController::class, 'edit'])->name('puestos.edit');
 Route::put('/puestos/{puesto}', [PuestoController::class, 'update'])->name('puestos.update');
-Route::delete('/puestos/{id}', [PuestoController::class, 'destroy'])->name('users.destroy');
+Route::delete('/puestos/{id}', [PuestoController::class, 'destroy'])->name('puestos.destroy');
 
 
 // // Tipos de bonos
@@ -162,3 +163,5 @@ Route::get('/usuario/bonos', [UserViewController::class, 'bonos'])->name('user.b
 Route::get('/usuario/profile/{id}', [EditProfileController::class, 'index'])->name('edit.profile'); 
 Route::put('/usuarios/profile/{user}', [EditProfileController::class, 'update'])->name('editusers.update');
 
+// EMAIL
+Route::get('/faltas/{id}', [EmailFaltaController::class, 'enviarCorreoFalta'])->name('faltas.enviar');

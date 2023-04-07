@@ -26,6 +26,27 @@ class UserController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
     }
 
+    //************************************************************** */
+    public function indexes(Request $request)
+    {
+        $coincidencia = $request->get('mensaje');
+
+        $users = User::where('nombre', 'LIKE', $coincidencia.'%')->get();
+
+        if ($users->isNotEmpty()) {
+            return view('buscar.usuarios.veru', compact('users'));
+        }else{
+            return view('buscar.usuarios.sin');
+        }
+    }
+    public function normal(Request $request)
+    {
+        $users = User::paginate();
+
+        return view('buscar.usuarios.vern', compact('users'));
+    }
+    //************************************************************** */
+
     /**
      * Show the form for creating a new resource.
      *

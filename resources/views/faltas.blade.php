@@ -22,19 +22,26 @@
                                         <th>Nombre</th>
                                         <th>Correo electronico</th>
                                         <th>Puesto</th>
-                                        <th>foto</th>
-                                        <th>Notificacion</th>
+                                        <th>Foto</th>
+                                        <th>Solicitar justificación</th>
                                     </thead>
                                     <tbody>
                                         <tbody>
                                             @foreach ($registros as $item)
+                                            <p hidden>{{$cadena = str_replace('public/box/', '', $item->foto)}}</p> 
                                             <tr>
                                                 <td>{{$item->nombre}} {{$item->appA}}</td> 
                                                 <td>{{$item->email}}</td>
                                                 <td>{{$item->puesto->nombre}}</td>
-                                                <td>{{$item->foto}}</td>
                                                 <td>
-                                                    <a href="{{route('faltas.enviar', $item->id)}}" class="btn btn-dark">Notificar</a>
+                                                    <div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
+                                                        </div>  
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a href="{{route('faltas.enviar', $item->id)}}" class="btn btn-dark">Enviar</a>
                                                 </td>
                                             </tr>
                                             @endforeach

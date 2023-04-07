@@ -1,4 +1,4 @@
-<h1>Informe de asistencia</h1>
+<h1>Informe de inasistencia</h1>
 <p>
     Estimado/a <strong>{{$usuario->nombre}} {{$usuario->appA}}</strong>,
 </p>

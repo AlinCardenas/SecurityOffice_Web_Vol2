@@ -16,10 +16,10 @@ class EntradasSalidas extends Migration
         Schema::create('entradas_salidas', function (Blueprint $table) {
             $table->engine='InnoDB';
             $table->bigIncrements('id');
-            $table->time('entrada');
+            $table->time('entrada')->nullable();
             $table->time('salida')->nullable();
-            $table->date('fecha');
-            $table->string('control')->nullable();
+            $table->date('fecha')->nullable();
+            $table->string('numcon');
             $table->bigInteger('usuario_id')->unsigned();
             $table->bigInteger('bono_id')->unsigned()->nullable();
             $table->timestamps();

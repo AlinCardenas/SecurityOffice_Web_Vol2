@@ -15,6 +15,7 @@
                         <div class="table-responsive ">
                             <div class="mb-3">
                                 <a class="btn text-white btn-create" href="{{route('entradas.create')}}" role="button">Agregar usuario</a>
+                                <a class="btn btn-secondary" href="{{route('entradas.pdf')}}"  role="button">Generar PDF</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -54,6 +55,7 @@
                         </div>
                         {!! $entradasSalidas->links() !!}
                     </div>
+                    
                 </div>
             </div>
         </div>

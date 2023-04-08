@@ -91,5 +91,6 @@ Highcharts.chart('container', {
     }
 });
 </script>
+
 @endsection
 

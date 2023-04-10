@@ -48,9 +48,9 @@
                         <div class="d-flex justify-content-center mt-4">
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </div>
-                        <div class="d-flex justify-content-center mt-4">
+                        {{-- <div class="d-flex justify-content-center mt-4">
                             <a href="{{route('register')}}" class="link-info">Registrarme</a>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

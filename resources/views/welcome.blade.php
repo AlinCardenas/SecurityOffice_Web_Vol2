@@ -23,7 +23,7 @@
                                                 <th>Entrada</th>
                                                 <th>Salida</th>
                                                 <th>Usuario</th>                                            
-                                                <th>Foto del usuario</th>                                            
+                                         
                                             </thead>
                                             <tbody>
                                                 @foreach ($registros as $item)

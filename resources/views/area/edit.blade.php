@@ -22,7 +22,12 @@
                                 <div class="form-group">
                                     <label for="nombre" class="form-label">Nombre: </label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" value="{{$area->nombre}}">
-                                </div>            
+                                </div>  
+                                @error('nombre')
+                                    <br>
+                                    <small>*{{$message}} </small>
+                                    <br>
+                                    @enderror          
                                 <label for="nombre" class="mt-4 form-label">Estatus: </label>
                                 <select class="form-select" aria-label="Default select example" name="estatus">
                                     <option value="" >Selecciona un estatus para el area</option>

@@ -13,16 +13,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
-                            <div class="row mt-1 w-100 my-4">
-                                <div class="col">
-                                    <a class="btn btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
-                                </div>
-                                <div class="col">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">Busca por nombre:</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ingreso" name="ingreso">
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <a class="btn text-white btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

@@ -18,7 +18,7 @@
                             <div class="card-body">
                                 <div class="table-responsive ">
                                     <div class="mb-3">
-                                        <button type="button" class="btn btn-info">Agregar bono</button>
+                                        <button type="button" class="btntext-white btn-info">Agregar bono</button>
                                     </div>
                                     <table class="table col-md-12 ">
                                         <thead >

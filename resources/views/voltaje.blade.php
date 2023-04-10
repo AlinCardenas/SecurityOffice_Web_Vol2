@@ -1,9 +1,9 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Voltaje')
+@section('title', 'Humedad')
 
 @section('content')
-    <h1>Voltaje</h1>
+    <h1>Humedad</h1>
     <figure class="highcharts-figure">
         <div class="d-flex justify-content-center">
             {{-- <h1>Voltaje: ------ {{$voltaje}}</h1> --}}
@@ -36,7 +36,7 @@ Highcharts.chart('container', {
     },
 
     title: {
-        text: 'Voltaje'
+        text: 'Humedad'
     },
 
     pane: {
@@ -85,7 +85,7 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: 'Voltaje',
+        name: 'Humedad',
         data: [0],
         tooltip: {
             valueSuffix: ' V'

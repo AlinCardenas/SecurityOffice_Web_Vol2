@@ -6,6 +6,7 @@
     <h1>Voltaje</h1>
     <figure class="highcharts-figure">
         <div class="d-flex justify-content-center">
+            {{-- <h1>Voltaje: ------ {{$voltaje}}</h1> --}}
             <div id="container" class="w-100 mx-5">
 
             </div>

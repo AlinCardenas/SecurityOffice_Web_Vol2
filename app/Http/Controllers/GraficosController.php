@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\EntradasSalida;
+use App\Models\Iotsistema;
 use Illuminate\Http\Request;
 
 
@@ -112,13 +113,17 @@ class GraficosController extends Controller
     }
 
     public function temperatura(){
-        $temperatura = 24;
+        $graficos = Iotsistema::find(1);
 
-        return view('temperatura', ['temperatura' => json_encode($temperatura)]);
+        $temperatura = $graficos->temperatura;
+        return view('temperatura', compact('temperatura'));
     }
 
     public function voltaje(){
-        $voltaje = 4;
-        return view('voltaje')->with(['voltaje' => json_encode($voltaje)]);
+        $graficos = Iotsistema::find(1);
+
+        $voltaje = $graficos->voltaje;
+
+        return view('voltaje', compact('voltaje'));
     }
 }

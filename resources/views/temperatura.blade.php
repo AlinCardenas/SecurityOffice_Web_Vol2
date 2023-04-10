@@ -6,8 +6,8 @@
     <h1>Temperatura</h1>
     <figure class="highcharts-figure">
         <div class="d-flex justify-content-center">
+            {{-- <h1>Temprerartuta: {{$temperatura}}</h1> --}}
             <div id="container" class="w-100 mx-5">
-
             </div>
         </div>
     </figure>

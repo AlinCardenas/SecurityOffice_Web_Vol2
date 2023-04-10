@@ -27,11 +27,18 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($registros as $item)
+                                                <p hidden>{{$cadena = str_replace('public/box/', '', $item->foto)}}</p> 
                                                 <tr>
                                                     <td>{{$item->entrada}}</td> 
                                                     <td>{{$item->salida}}</td> 
                                                     <td>{{$item->user->nombre}} {{$item->user->appA}}</td> 
-                                                    <td>{{$item->user->foto}}</td> 
+                                                    <td>
+                                                        <div>
+                                                            <div class="d-flex justify-content-center">
+                                                                <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
+                                                            </div>  
+                                                        </div>
+                                                    </td> 
                                                 </tr>
                                                 @endforeach
                                             </tbody>

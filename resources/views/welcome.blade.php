@@ -33,11 +33,9 @@
                                                     <td>{{$item->salida}}</td> 
                                                     <td>{{$item->user->nombre}} {{$item->user->appA}}</td> 
                                                     <td>
-                                                        <div>
-                                                            <div class="d-flex justify-content-center">
-                                                                <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
-                                                            </div>  
-                                                        </div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>
+                                                        </div>  
                                                     </td> 
                                                 </tr>
                                                 @endforeach

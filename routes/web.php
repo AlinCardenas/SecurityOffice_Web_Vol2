@@ -56,6 +56,9 @@ Route::post('/entradas-salidas/{id}', [EntradasSalidaController::class, 'show'])
 Route::get('/entradas-salidas/edit/{id}', [EntradasSalidaController::class, 'edit'])->name('entradas.edit');
 Route::put('/entradas-salidas/{id}', [EntradasSalidaController::class, 'update'])->name('entradas.update');
 Route::delete('/entradas-salidas/{id}', [EntradasSalidaController::class, 'destroy'])->name('entradas.destroy');
+Route::get('/entradas-salidas/pdf', [EntradasSalidaController::class, 'pdf'])->name('entradas.pdf');
+
+
 
 //Usuarios
 Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
@@ -65,6 +68,7 @@ Route::post('/usuarios/{id}', [UserController::class, 'show'])->name('users.show
 Route::get('/usuarios/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
 Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
 
 //Puestos
 Route::put('/puestos/{puesto}', [PuestoController::class, 'update'])->name('puestos.update');

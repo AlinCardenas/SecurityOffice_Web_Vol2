@@ -7,6 +7,9 @@ use App\Models\EntradasSalida;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Dompdf\Dompdf;
+use PDF;
+
 
 /**
  * Class EntradasSalidaController
@@ -25,6 +28,13 @@ class EntradasSalidaController extends Controller
 
         return view('entradas-salida.index', compact('entradasSalidas'))
             ->with('i', (request()->input('page', 1) - 1) * $entradasSalidas->perPage());
+    }
+    
+    public function pdf() 
+    {
+        $entradasSalidas = EntradasSalida::paginate();
+        $pdf = PDF::loadView('entradas-salida.pdf',['entradasSalidas'=>$entradasSalidas]);
+        return $pdf->stream();        
     }
 
     /**

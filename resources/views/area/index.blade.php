@@ -10,12 +10,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Lista de areas</h4>
+                        <h4 class="card-title ">Lista de área</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
                             <div class="mb-3">
-                                <a class="btn text-white btn-create" href="{{route('areas.create')}}" role="button">Agregar usuario</a>
+                                <a class="btn text-white btn-create" href="{{route('areas.create')}}" role="button">Agregar área</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

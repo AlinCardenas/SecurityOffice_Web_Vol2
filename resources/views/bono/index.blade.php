@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="table-responsive ">
                             <div class="mb-3">
-                                <a class="btn btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
+                                <a class="btn text-white btn-info" href="{{route('bonos.create')}}" role="button">Agregar bono</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

@@ -64,20 +64,20 @@ Highcharts.chart('container', {
             }
         },
         plotBands: [{
-            from: 4,
-            to: 5,
+            from: 40,
+            to: 60,
             color: 'rgba(0, 0, 255, 0.56)', // green
             thickness: 20
         }, 
         {
-            from: 1,
-            to: 4,
+            from: 10,
+            to: 40,
             color: 'rgba(255, 255, 0, 0.8)', // yellow
             thickness: 20
         }, 
         {
             from: 0,
-            to: 1,
+            to: 10,
             color: 'rgba(230, 230, 53, 0.42)', // yellow
             thickness: 20
         }, 

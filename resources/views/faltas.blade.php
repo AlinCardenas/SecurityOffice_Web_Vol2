@@ -33,7 +33,7 @@
                                                 <td>{{$item->nombre}} {{$item->appA}}</td> 
                                                 <td>{{$item->email}}</td>
                                                 <td>{{$item->puesto->nombre}}</td>
-                                                <td>
+                                                <td style="text-align:center;">
                                                     <div>
                                                         <div class="d-flex justify-content-center">
                                                             <img class="border border-2 rounded-circle me-2 ms-2" src="storage/box/{{$cadena}}" width="70" alt="Logo del anime"></td>

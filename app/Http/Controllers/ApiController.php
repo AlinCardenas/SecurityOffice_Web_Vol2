@@ -81,4 +81,22 @@ class ApiController extends Controller
         return $registros;
     }
 
+    //* Mis entradas
+    public function registrosEntradas(){
+        $mes = Carbon::now()->month;
+        $anio = Carbon::now()->year;
+        $registros = EntradasSalida::select('*')->whereMonth('fecha', $mes)->whereYear('fecha', $anio)->with('user')->get();
+
+        return $registros;
+    }
+
+    //* Mis bonos
+    public function registrosBonos(){
+        $mes = Carbon::now()->month;
+        $anio = Carbon::now()->year;
+        $registros = EntradasSalida::select('*')->isNotEmpty('bono_id')->with('bono')->get();
+
+        return $registros;
+    }
+
 }

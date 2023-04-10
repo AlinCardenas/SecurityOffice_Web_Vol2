@@ -10,20 +10,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title ">Lista de areas</h4>
+                        <h4 class="card-title ">Lista de área</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive ">
-                            <div class="row mt-1 w-100 my-4">
-                                <div class="col">
-                                    <a class="btn text-white btn-create" href="{{route('areas.create')}}" role="button">Agregar area</a>
-                                </div>
-                                <div class="col">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="inputGroup-sizing-default">Busca por nombre:</span>
-                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="ingreso" name="ingreso">
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <a class="btn text-white btn-create" href="{{route('areas.create')}}" role="button">Agregar área</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">

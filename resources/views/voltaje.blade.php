@@ -50,7 +50,7 @@ Highcharts.chart('container', {
     // the value axis
     yAxis: {
         min: 0,
-        max: 5,
+        max: 60,
         tickPixelInterval: 40,
         tickPosition: 'inside',
         tickColor: Highcharts.defaultOptions.chart.backgroundColor || '#FFFFFF',

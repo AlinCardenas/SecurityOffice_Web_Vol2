@@ -88,10 +88,10 @@ Highcharts.chart('container', {
         name: 'Humedad',
         data: [0],
         tooltip: {
-            valueSuffix: ' V'
+            valueSuffix: ' °'
         },
         dataLabels: {
-            format: '{y} V',
+            format: '{y} °',
             borderWidth: 0,
             color: (
                 Highcharts.defaultOptions.title &&

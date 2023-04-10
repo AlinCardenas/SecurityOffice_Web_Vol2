@@ -27,7 +27,7 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($registros as $item)
-                                                <p hidden>{{$cadena = str_replace('public/box/', '', $item->foto)}}</p> 
+                                                <p hidden>{{$cadena = str_replace('public/box/', '', $item->user->foto)}}</p> 
                                                 <tr>
                                                     <td>{{$item->entrada}}</td> 
                                                     <td>{{$item->salida}}</td> 

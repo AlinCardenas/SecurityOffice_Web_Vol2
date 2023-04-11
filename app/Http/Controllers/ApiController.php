@@ -94,7 +94,7 @@ class ApiController extends Controller
     public function registrosBonos(){
         $mes = Carbon::now()->month;
         $anio = Carbon::now()->year;
-        $registros = EntradasSalida::select('*')->isNotEmpty('bono_id')->with('bono')->get();
+        $registros = EntradasSalida::select('*')->whereNotNull('bono_id')->with('bono')->get();
 
         return $registros;
     }

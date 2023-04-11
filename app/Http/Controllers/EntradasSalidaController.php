@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bono;
 use App\Models\EntradasSalida;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Dompdf\Dompdf;
@@ -33,7 +34,7 @@ class EntradasSalidaController extends Controller
     public function pdf() 
     {
         $entradasSalidas = EntradasSalida::paginate();
-        $pdf = PDF::loadView('entradas-salida.pdf',['entradasSalidas'=>$entradasSalidas]);
+        $pdf = FacadePdf::loadView('entradas-salida.pdf',['entradasSalidas'=>$entradasSalidas]);
         return $pdf->stream();        
     }
 

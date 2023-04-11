@@ -32,7 +32,7 @@ class Falta extends Mailable
     {
         return $this
             ->view('emails.falta')
-            ->subject("Notificación de asistencia")
+            ->subject("Notificación de inasistencia")
             ->with([
                 "usuario" => $this->usuario,
                 "fecha" => $this->fecha,

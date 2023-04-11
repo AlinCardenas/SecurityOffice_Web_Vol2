@@ -45,7 +45,6 @@ class SuperApiController extends Controller
             $token->expires_at = Carbon::now()->addWeeks(1);
         }
         $token->save();
-        $user = User::select('*')->where('id', $user->id)->with('puesto')->get();
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',

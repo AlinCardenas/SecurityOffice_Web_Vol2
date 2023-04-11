@@ -11,7 +11,7 @@
 <body>
     
     <div class="table-responsive">
-    <h3>Lista de entradas y salidas</h3>
+    <h2>Lista de entradas y salidas</h2>
         <table class="table table-striped table-hover">
             <thead class="thead">
                 <tr>

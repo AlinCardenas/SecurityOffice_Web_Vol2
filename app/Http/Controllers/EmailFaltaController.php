@@ -16,5 +16,9 @@ class EmailFaltaController extends Controller
         $mailable = new Falta($usuario, $fecha);
         // dump($usuario->email);
         Mail::to($usuario->email)->send($mailable);
+        
+
+
+        return redirect()->route('faltas.registros');
     }
 }
